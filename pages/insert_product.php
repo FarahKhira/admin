@@ -20,9 +20,6 @@
     <!-- Custom CSS -->
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
 
-    <!-- Morris Charts CSS -->
-    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -82,82 +79,6 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item see-more text-center" href="#">
                             <strong>Read All Messages</strong>
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
-                        aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-tasks fa-fw"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-tasks">
-                        <a class="dropdown-item" href="#">
-                            <div>
-                                <p>
-                                    <strong>Task 1</strong>
-                                    <span class="float-right text-muted">40% Complete</span>
-                                </p>
-                                <div class="progress active">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-                                        role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
-                                        style="width: 40%">
-                                        <span class="sr-only">40% Complete (success)</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">
-                            <div>
-                                <p>
-                                    <strong>Task 2</strong>
-                                    <span class="float-right text-muted">20% Complete</span>
-                                </p>
-                                <div class="progress active">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
-                                        role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-                                        style="width: 20%">
-                                        <span class="sr-only">20% Complete</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">
-                            <div>
-                                <p>
-                                    <strong>Task 3</strong>
-                                    <span class="float-right text-muted">60% Complete</span>
-                                </p>
-                                <div class="progress active">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
-                                        role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                        style="width: 60%">
-                                        <span class="sr-only">60% Complete (warning)</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">
-                            <div>
-                                <p>
-                                    <strong>Task 4</strong>
-                                    <span class="float-right text-muted">80% Complete</span>
-                                </p>
-                                <div class="progress active">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                                        role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
-                                        style="width: 80%">
-                                        <span class="sr-only">80% Complete (danger)</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item see-more text-center" href="#">
-                            <strong>See All Tasks</strong>
                             <i class="fa fa-angle-right"></i>
                         </a>
                     </div>
@@ -239,16 +160,16 @@
                             <!-- /input-group -->
                         </li>
                         <li class="list-group-item">
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li class="list-group-item">
                             <a href="#"><i class="fa fa-tags"></i> Products<span class="fa arrow"></span></a>
                             <ul class="nav-second-level list-group nested">
                                 <li class="list-group-item">
-                                    <a href="flot.html"> Insert Product </a>
+                                    <a href="insert_product.php"> Insert Product </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="morris.html"> View Products </a>
+                                    <a href="view_product.php"> View Products </a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -257,10 +178,10 @@
                             <a href="#"><i class="fa fa-users fa-fw"></i> Customers<span class="fa arrow"></span></a>
                             <ul class="nav-second-level list-group nested">
                                 <li class="list-group-item">
-                                    <a href="tables.html"> Insert Customer </a>
+                                    <a href="view_customer.php">View Customer </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="buttons.html">View Customers </a>
+                                    <a href="edit_customer.php">Edit Customers </a>
                                 </li>
                             </ul>
                             <!-- /.nav-second -->
@@ -269,10 +190,10 @@
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Staffs<span class="fa arrow"></span></a>
                             <ul class="nav-second-level list-group nested">
                                 <li class="list-group-item">
-                                    <a href="cards.html">Register Staff</a>
+                                    <a href="reg_staff.php">Register Staff</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="grid.html">View Staff</a>
+                                    <a href="view_staff.php">View Staff</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -281,10 +202,10 @@
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Settings<span class="fa arrow"></span></a>
                             <ul class="nav-second-level list-group nested">
                                 <li class="list-group-item">
-                                    <a href="blank.html">Profile</a>
+                                    <a href="user_profile.php">Profile</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="login.html">Login</a>
+                                    <a href="login.php">Logout</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -325,7 +246,8 @@
                                         </tr>
                                         <tr>
                                             <th>Attachment</th>
-                                            <td><input type="file" name="file_img[]"></td>
+                                            <td><input type="file" name="file_img[]">
+                                            </td>
                                         </tr>
                                         <tr>
                                             <th>Detail</th>
@@ -335,15 +257,14 @@
                                         </tr>
                                         <tr>
                                             <th>Date of Product</th>
-                                            <td><input type="text" name="date" id="datepicker"
-                                                    class="bs-input bs-border" autocomplete="off" readonly><span
-                                                    id="check_date"></span></td>
+                                            <td><input type="text" name="date" id="datepicker" class="bs-input bs-border" autocomplete="off" readonly>
+                                                <span id="check_date"></span>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <th colspam="2" class="bs-center"><input type="submit" name="save"
-                                                    class="bs-button bs-light-blue" id="save" value="Save changes">
-                                                <input type="reset" name="reset" class="bs-button bs-light-blue"
-                                                    value="Cancel"></th>
+                                            <th colspam="2" class="bs-center"><input type="submit" name="save" class="bs-button bs-light-blue" id="save" value="Save changes">
+                                                <input type="reset" name="reset" class="bs-button bs-light-blue" value="Cancel">
+                                            </th>
                                         </tr>
                                     </tbody>
                                 </table>

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Customers-View customer</title>
+    <title>Staffs-Register Staff</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -17,12 +17,9 @@
     <!-- MetisMenu CSS -->
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
-    <!-- DataTables CSS -->
-    <link href="../vendor/datatables/css/dataTables.bootstrap4.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-
+    
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -89,82 +86,6 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-tasks fa-fw"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-tasks">
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <p>
-                                <strong>Task 1</strong>
-                                <span class="float-right text-muted">40% Complete</span>
-                            </p>
-                            <div class="progress active">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-                                     role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
-                                     style="width: 40%">
-                                    <span class="sr-only">40% Complete (success)</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <p>
-                                <strong>Task 2</strong>
-                                <span class="float-right text-muted">20% Complete</span>
-                            </p>
-                            <div class="progress active">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
-                                     role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-                                     style="width: 20%">
-                                    <span class="sr-only">20% Complete</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <p>
-                                <strong>Task 3</strong>
-                                <span class="float-right text-muted">60% Complete</span>
-                            </p>
-                            <div class="progress active">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
-                                     role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                     style="width: 60%">
-                                    <span class="sr-only">60% Complete (warning)</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <p>
-                                <strong>Task 4</strong>
-                                <span class="float-right text-muted">80% Complete</span>
-                            </p>
-                            <div class="progress active">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                                     role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
-                                     style="width: 80%">
-                                    <span class="sr-only">80% Complete (danger)</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item see-more text-center" href="#">
-                        <strong>See All Tasks</strong>
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
-                   aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-bell fa-fw"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-alerts">
@@ -218,7 +139,7 @@
                     <a class="dropdown-item" href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     <a class="dropdown-item" href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <a class="dropdown-item" href="login.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                 </div>
             </li>
         </ul>
@@ -239,16 +160,16 @@
                         <!-- /input-group -->
                     </li>
                     <li class="list-group-item">
-                        <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li class="list-group-item">
                         <a href="#"><i class="fa fa-tags"></i> Products<span class="fa arrow"></span></a>
                         <ul class="nav-second-level list-group nested">
                             <li class="list-group-item">
-                                <a href="flot.html"> Insert Product </a>
+                                <a href="insert_product.php"> Insert Product </a>
                             </li>
                             <li class="list-group-item">
-                                <a href="morris.html"> View Products </a>
+                                <a href="View_product.php"> View Products </a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -257,10 +178,10 @@
                         <a href="#"><i class="fa fa-users fa-fw"></i> Customers<span class="fa arrow"></span></a>
                         <ul class="nav-second-level list-group nested">
                             <li class="list-group-item">
-                                <a href="tables.html"> Insert Customer </a>
+                                <a href="view_customer.php">View Customer </a>
                             </li>
                             <li class="list-group-item">
-                                <a href="buttons.html">View Customers </a>
+                                <a href="edit_product.php">Edit Customers </a>
                             </li>
                         </ul>
                         <!-- /.nav-second -->
@@ -269,10 +190,10 @@
                         <a href="#"><i class="fa fa-edit fa-fw"></i> Staffs<span class="fa arrow"></span></a>
                         <ul class="nav-second-level list-group nested">
                             <li class="list-group-item">
-                                <a href="cards.html">Register Staff</a>
+                                <a href="reg_staff.php">Register Staff</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="grid.html">View Staff</a>
+                                <a href="view_staff.php">View Staff</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -281,10 +202,10 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Settings<span class="fa arrow"></span></a>
                         <ul class="nav-second-level list-group nested">
                             <li class="list-group-item">
-                                <a href="blank.html">Profile</a>
+                                <a href="user_profile.php">Profile</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="login.html">Login</a>
+                                <a href="login.php">Logout</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -296,55 +217,125 @@
 
         <div id="page-wrapper" class="p-4">
             <div class="row">
-            <div class="col-xl-6">
-                <div class="card">
-                    <div class="card-header">View Customer</div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                        <div class="table-responsive table-bordered">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Account Manager</th>
-                                        <th>Company</th>
-                                        <th>View</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td><button type="button" href="custdetails.php"
-                                                class="form-control btn btn-dark"><i class="fa fa-eye"></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td><button type="button" href="" class="form-control btn btn-dark"><i
-                                                    class="fa fa-eye"></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td><button type="button" href="" class="form-control btn btn-dark"><i
-                                                    class="fa fa-eye"></i></button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.table-responsive -->
-                    </div>
-                    <!-- /.card-body -->
+                <div class="col-xl-12">
+                    <h2 class="page-header">Add Staff </h2>
                 </div>
-                <!-- /.panel -->
+                <!-- /.col-xl-12 -->
             </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-9">
+                    <form class="form-horizontal">
+                        <div class="panel panel-default">
+                            <div class="panel-body text-center">
+                                <img src="//placeholder.it/100" class="img-circle profile-avatar" alt="User avatar">
+                                <h6>Upload picture!!!</h6>
+                                <input type="file" class="form-control">
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">User info</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Location</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control">
+                                            <option selected="">Select country</option>
+                                            <option>Selangor</option>
+                                            <option>Kedah</option>
+                                            <option>Perak</option>
+                                            <option>Sabah</option>
+                                            <option>Pahang</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Full name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Position</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Contact info</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Work number</label>
+                                    <div class="col-sm-10">
+                                        <input type="tel" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Mobile number</label>
+                                    <div class="col-sm-10">
+                                        <input type="tel" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">E-mail address</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Work address</label>
+                                    <div class="col-sm-10">
+                                        <textarea rows="3" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Security</h4>
+                            </div>
+                            <div class="panel-body">
+                                 <div class="form-group">
+                                     <label class="col-sm-2 control-label">Username</label>
+                                     <div class="col-sm-10">
+                                         <input type="password" class="form-control">
+                                     </div>
+                                 </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Password</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Confirm Password</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-10 col-sm-offset-2">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="reset" class="btn btn-default">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- /.row -->
         </div>
-        </div>
-    </div>           
+        <!-- /#page-wrapper -->
+    </div>
 </div>
 <!-- /#wrapper -->
 
@@ -358,25 +349,8 @@
 <!-- Metis Menu Plugin JavaScript -->
 <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
-<!-- DataTables JavaScript -->
-<script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
-<script src="../vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
-<script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
-
 <!-- Custom Theme JavaScript -->
 <script src="../dist/js/sb-admin-2.js"></script>
-
-<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-<script>
-    $(document).ready(function () {
-        $('#dataTables-example').DataTable({
-            responsive: true,
-            drawCallback: function () {
-                $('#dataTables-example_wrapper .row:last-child').addClass('mb-1 align-items-baseline');
-            }
-        });
-    });
-</script>
 </body>
 
 </html>
