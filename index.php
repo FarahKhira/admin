@@ -1,298 +1,28 @@
-<?php
+<?php 
+include "includes/db.php";
+
+
+if (isset($_SESSION['id']) && $_SESSION['role'] == 'staff') {
+	
+} else {
+	header('Location: login.php');
+}
+
+ ?>
+
+ <?php
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>E-Quotation System</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <style>
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
-
-/* Button used to open the chat form - fixed at the bottom of the page */
-.open-button {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
-}
-
-/* The popup chat - hidden by default */
-.chat-popup {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  right: 15px;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
-}
-
-/* Add styles to the form container */
-.form-container {
-  max-width: 300px;
-  padding: 10px;
-  background-color: white;
-}
-
-/* Full-width textarea */
-.form-container textarea {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-  resize: none;
-  min-height: 200px;
-}
-
-/* When the textarea gets focus, do something */
-.form-container textarea:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-/* Set a style for the submit/send button */
-.form-container .btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
-
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-  background-color: red;
-}
-
-/* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
-}
-</style>
-
-</head>
-
-<body>
-
-<div id="wrapper">
+<?php include "includes/header.php"; ?>
 
     <!-- Navigation -->
-    <header class="align-items-start app-header flex-column flex-md-row navbar navbar-expand-md navbar-light">
-        <div class="align-items-baseline d-flex flex-row navbar-brand p-lg-3 pl-3 pr-3 pt-3">
-            <a class="" href="index.php"><img src="../vendor/datatables/images/download.png" width="200" height="60"></a>
-            <button class="collapsed ml-auto navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#side-menu-wrapper" aria-controls="side-menu" aria-expanded="false"
-                    aria-label="Toggle navigation" style="">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
+<!-- Top Navigation -->
+    <?php include "includes/top_navigation.php"; ?>
 
-        <ul class="nav navbar-nav ml-md-auto flex-row navbar-top-links">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
-                   aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-envelope fa-fw"></i>
-                </a>
-                <div class="dropdown-menu dropdown-messages dropdown-menu-right">
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <strong>Khira</strong>
-                            <span class="float-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                        </div>
-                        <div>Please do check for this customer details.</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <strong>Khira</strong>
-                            <span class="float-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                        </div>
-                        <div>Need to edit the product contract...</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <strong>Farah</strong>
-                            <span class="float-right text-muted">
-                                        <em>Today</em>
-                                    </span>
-                        </div>
-                        <div>Admin, please do recheck the price for fibre optic contract...</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item see-more text-center" href="#">
-                        <strong>Read All Messages</strong>
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
-                   aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-bell fa-fw"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-alerts">
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-users fa-fw"></i> New Comment
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                            <span class="float-right text-muted small">12 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-envelope fa-fw"></i> Message Sent
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-tasks fa-fw"></i> New Task
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item see-more text-center" href="#">
-                        <strong>See All Alerts</strong>
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
-                   aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-user fa-fw"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-user">
-                    <a class="dropdown-item" href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                    <a class="dropdown-item" href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="login.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                </div>
-            </li>
-        </ul>
-    </header>
-    <div class="d-md-flex">
-        <div class="sidebar" role="navigation">
-            <div class="sidebar-nav collapse navbar-collapse show" id="side-menu-wrapper">
-                <ul class="nav navbar-nav navbar-collapse flex-column side-nav list-group" id="side-menu">
-                    <li class="sidebar-search">
-                        <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-white" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                        <!-- /input-group -->
-                    </li>
-                   <li class="list-group-item">
-                        <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#"><i class="fa fa-tags"></i> Products<span class="fa arrow"></span></a>
-                        <ul class="nav-second-level list-group nested">
-                            <li class="list-group-item">
-                                <a href="insert_product.php"> Insert Product </a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="view_product.php"> View Products </a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#"><i class="fa fa-users fa-fw"></i> Customers<span class="fa arrow"></span></a>
-                        <ul class="nav-second-level list-group nested">
-                            <li class="list-group-item">
-                                <a href="view_customer.php"> View Customer </a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="edit_customer.php">Edit Customers </a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second -->
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#"><i class="fa fa-edit fa-fw"></i> Staffs<span class="fa arrow"></span></a>
-                        <ul class="nav-second-level list-group nested">
-                            <li class="list-group-item">
-                                <a href="reg_staff.php">Register Staff</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="view_staff.php">View Staff</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Settings<span class="fa arrow"></span></a>
-                        <ul class="nav-second-level list-group nested">
-                            <li class="list-group-item">
-                                <a href="user_profile.php">Profile</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="login.php">Logout</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                </ul>
-            </div>
-            <!-- /.sidebar-collapse -->
-        </div>
+<!-- Left Navigation -->
+    <?php include "includes/side_navigation.php"; ?>
+        
 
         <div id="page-wrapper" class="p-4">
             <div class="row">
@@ -607,36 +337,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 
-<!-- jQuery -->
-<script src="../vendor/jquery/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="../vendor/popper/popper.min.js"></script>
-<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-
-<!-- Metis Menu Plugin JavaScript -->
-<script src="../vendor/metisMenu/metisMenu.min.js"></script>
-
-<!-- DataTables JavaScript -->
-<script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
-<script src="../vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
-<script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="../dist/js/sb-admin-2.js"></script>
-
-<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-<script>
-
-    function openForm() {
-    document.getElementById("myForm").style.display = "block";
-    }
-
-    function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-    }
-
-</script>
+<?php include "includes/script.php"; ?>
 
 </body>
 

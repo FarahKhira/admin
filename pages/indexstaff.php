@@ -27,6 +27,82 @@
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+</style>
+
 </head>
 
 <body>
@@ -140,7 +216,7 @@
                     <i class="fa fa-user fa-fw"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-user">
-                    <a class="dropdown-item" href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <a class="dropdown-item" href="user.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     <a class="dropdown-item" href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="login.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -197,42 +273,20 @@
                 <!-- /.col-lg-12 -->
             </div>
             <div class="row">
-                <div class="col-xl-3 col-lg-6">
+                <div class="col-xl-6 col-lg-12">
                     <div class="card card-primary card-inverse">
                         <div class="card-header card-primary">
-                            <div class="row">
-                                <div class="col-3">
-                                    <i class="fa fa-tags fa-5x"></i>
-                                </div>
-                                <div class="col-9 text-right">
-                                    <div class="huge">26</div>
-                                    <div>Products!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer card-default">
-                            <a href="flot.html">
-                                <span class="float-sm-left">View Details</span>
-                                <span class="float-sm-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6">
-                    <div class="card card-green card-inverse">
-                        <div class="card-header card-green">
                             <div class="row">
                                 <div class="col-3">
                                     <i class="fa fa-users fa-5x"></i>
                                 </div>
                                 <div class="col-9 text-right">
-                                    <div class="huge">12</div>
+                                    <div class="huge">26</div>
                                     <div>Customers!</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer card-green">
+                        <div class="card-footer card-default">
                             <a href="javascript:;">
                                 <span class="float-sm-left">View Details</span>
                                 <span class="float-sm-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -241,38 +295,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-6">
-                    <div class="card card-yellow card-inverse">
-                        <div class="card-header card-yellow">
-                            <div class="row">
-                                <div class="col-3">
-                                    <i class="fa fa-edit fa-5x"></i>
-                                </div>
-                                <div class="col-9 text-right">
-                                    <div class="huge">124</div>
-                                    <div>Staffs!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer card-yellow">
-                            <a href="javascript:;">
-                                <span class="float-sm-left">View Details</span>
-                                <span class="float-sm-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6">
+                <div class="col-xl-6 col-lg-12">
                     <div class="card card-red card-inverse">
                         <div class="card-header card-red">
                             <div class="row">
                                 <div class="col-3">
-                                    <i class="fa fa-support fa-5x"></i>
+                                    <i class="fa fa-user fa-5x"></i>
                                 </div>
                                 <div class="col-9 text-right">
                                     <div class="huge">13</div>
-                                    <div>About!</div>
+                                    <div>New Customers!</div>
                                 </div>
                             </div>
                         </div>
@@ -282,6 +314,20 @@
                                 <span class="float-sm-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </a>
+                        </div>
+
+                        <button class="open-button" onclick="openForm()">Chat</button>
+
+                        <div class="chat-popup" id="myForm">
+                        <form action="/action_page.php" class="form-container">
+                            <h2>Chat</h2>
+
+                            <label for="msg"><b>Message</b></label> 
+                            <textarea placeholder="Type message.." name="msg" required></textarea>
+
+                            <button type="submit" class="btn">Send</button>
+                            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                        </form>
                         </div>
                     </div>
                 </div>
@@ -313,5 +359,35 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="../dist/js/sb-admin-2.js"></script>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+</script>
 
 </html>

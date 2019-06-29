@@ -204,63 +204,50 @@ if(isset($_POST['send'])){
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
-            <div id="page-wrapper" class="p-4">
+            <div id="page-wrapper">
                 <div class="container">
-                    <div class="col-md-12">
-                        <h3 class="page-header">Client's Detail</h3>
+                    <div class="col-xl-12">
+                        <h2 class="page-header">Client's detail</h2>
                     </div>
-                    <div class="col-md-12">
-                        <img src="../vendor/datatables/images/download.png" alt="" width="255" height="72">
-                            <br>
-                            <h2><strong>Fibrecomm Network (M) Sdn Bhd (240859-H)</strong></h2>
-                            <p>
-                                Level 37, Menara TM, Off Jalan Pantai Baharu, 59200 Kuala Lumpur, Malaysia<br>
-                                Tel: <a href="#">+603-2246-8400</a><br>
-                                Fax: <a href="#">+603-2246-8500</a><br>
-                                <a href="#">www.fibrecomm.net.my</a><br>
-                            </p>
-                            <b>Quotation Date: </b><strong id="year"><a href="#">
-                            <?php
-                                $dt = new DateTime();
-                            echo $dt->format('d-m-Y');
-                            ?></a></strong>
-                            
-                        <h4 class="bg-primary header text-center"><strong>Form</strong></h4>
-                    </div>
+                    <div>
+                        <div class="col-md-12">
+                            <h4 class="bg-primary header text-center"><strong>Form</strong></h4>
+                        </div>
                         <table>
-                    <form action="" method="post" id="userForm">
-                        <div class="form-group">
-                            <label>Section</label>
-                            <select name="sec" id="sec" class="form-control">
-                                <option value="DM">DM</option>
-                                <option value="GB">GM</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <input type="hidden" name="refNum" id="refNum">
-                        </div>
-                        <div class="form-group">
-                            <label>Company</label>
-                            <input type="text" name="comp" class="form-control" placeholder="Company" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Contact Person</label>
-                            <input type="text" name="con" class="form-control" placeholder="Contact Person" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Mobile</label>
-                            <input type="text" name="mob" class="form-control" placeholder="Mobile" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" name="em" class="form-control" placeholder="Email" required>
-                        </div>
-                        <div class="modal-footer">
-                            <input type="submit" name="send" id="send_btn" class="btn btn-primary" value="Send">
-                            <button type="submit" name="back" class="btn btn-primary" id="Back" onClick="javascript:window.location.href='indexstaff.php'; return false">Back</button>
-                        </div>
-                    </form>
+                        <form action="" method="post" id="userForm">
+                            <div class="form-group">
+                                <label>Section</label>
+                                <select name="sec" id="sec" class="form-control">
+                                    <option value="DM">DM</option>
+                                    <option value="GB">GM</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="refNum" id="refNum">
+                            </div>
+                            <div class="form-group">
+                                <label>Company</label>
+                                <input type="text" name="comp" class="form-control" placeholder="Company" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Contact Person</label>
+                                <input type="text" name="con" class="form-control" placeholder="Contact Person" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Mobile</label>
+                                <input type="text" name="mob" class="form-control" placeholder="Mobile" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" name="em" class="form-control" placeholder="Email" required>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="submit" name="send" id="send_btn" class="btn btn-primary" value="Send">
+                                <button type="submit" name="back" class="btn btn-primary" id="Back" onClick="javascript:window.location.href='indexstaff.php'; return false">Back</button>
+                            </div>
+                        </form>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>

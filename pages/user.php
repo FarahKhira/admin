@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Staffs-Register Staff</title>
+    <title>Customers-Edit customer</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -19,19 +19,16 @@
 
     <!-- Custom CSS -->
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-    
+
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-</head>
 
 <body>
 <div id="wrapper">
     <!-- Navigation -->
     <header class="align-items-start app-header flex-column flex-md-row navbar navbar-expand-md navbar-light">
         <div class="align-items-baseline d-flex flex-row navbar-brand p-lg-3 pl-3 pr-3 pt-3">
-            <a class="" href="index.php"><img src="../vendor/datatables/images/download.png" width="200"
-                    height="60"></a>
+            <a class="" href="index.php"><img src="../vendor/datatables/images/download.png" width="200" height="60"></a>
             <button class="collapsed ml-auto navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#side-menu-wrapper" aria-controls="side-menu" aria-expanded="false"
                     aria-label="Toggle navigation" style="
@@ -139,7 +136,7 @@
                     <a class="dropdown-item" href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     <a class="dropdown-item" href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="login.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <a class="dropdown-item" href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                 </div>
             </li>
         </ul>
@@ -169,7 +166,7 @@
                                 <a href="insert_product.php"> Insert Product </a>
                             </li>
                             <li class="list-group-item">
-                                <a href="View_product.php"> View Products </a>
+                                <a href="view_product.php"> View Products </a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -181,7 +178,7 @@
                                 <a href="view_customer.php">View Customer </a>
                             </li>
                             <li class="list-group-item">
-                                <a href="edit_product.php">Edit Customers </a>
+                                <a href="edit_customer.php">Edit Customers </a>
                             </li>
                         </ul>
                         <!-- /.nav-second -->
@@ -214,139 +211,116 @@
             </div>
             <!-- /.sidebar-collapse -->
         </div>
+    </div>
+    <div id="page-wrapper" class="p-4">
+        <div class="container-fluid">
+            <form>
+                <div class="container">
+                    <div class="row">
+                        <h2>User Profile</h2>
+                    <div class="col-xl-12 ">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"> 
+                                <h4></h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="box box-info">
+                                    <div class="box-body">
+                                        <div class="col-sm-6">
+                                            <div  align="center"><img alt="User Pic" src="" id="profile-image1" class="img-circle img-responsive"> 
+                                                <input id="profile-image-upload" class="hidden" type="file">
+                                            <div style="color:#999;" >click here to change profile image</div>
+                                            <!--Upload Image Js And Css-->
+                                            </div>
+                                                <br>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <h4 style="color:#00b1b1;">Full Name </h4></span>
+                                                <span><p>Bio</p></span>            
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <hr style="margin:5px 0 5px 0;">
+                                        </div>
+                                        <div class="col-sm-5 col-xs-6 tital " >First Name:</div><div class="col-sm-7 col-xs-6 "><input class="" placeholder="your first name"></input></div>
+                                            <div class="clearfix"></div>
+                                        <div class="bot-border"></div>
 
-        <div id="page-wrapper" class="p-4">
-            <div class="row">
-                <div class="col-xl-12">
-                    <h2 class="page-header">Add Staff </h2>
+                                        <div class="col-sm-5 col-xs-6 tital " >Middle Name:</div><div class="col-sm-7"><input class="" placeholder="your middle name"></input></div>
+                                        <div class="clearfix"></div>
+                                        <div class="bot-border"></div>
+
+                                        <div class="col-sm-5 col-xs-6 tital " >Last Name:</div><div class="col-sm-7"><input class="" placeholder="your last name"></input></div>
+                                        <div class="clearfix"></div>
+                                        <div class="bot-border"></div>
+
+                                        <div class="col-sm-5 col-xs-6 tital " >Date Of Joining:</div><div class="col-sm-7"><input class="" placeholder="Enter your first admit"></div>
+
+                                        <div class="clearfix"></div>
+                                        <div class="bot-border"></div>
+
+                                        <div class="col-sm-5 col-xs-6 tital " >Date Of Birth:</div><div class="col-sm-7"><input class="" placeholder="Your birthdate!"></input></div>
+
+                                        <div class="clearfix"></div>
+                                        <div class="bot-border"></div>
+
+                                        <div class="col-sm-5 col-xs-6 tital " >Place Of Birth:</div><div class="col-sm-7"><input class="" placeholder="Your birth place"></input></div>
+
+                                        <div class="clearfix"></div>
+                                        <div class="bot-border"></div>
+
+                                        <div class="col-sm-5 col-xs-6 tital " >Nationality:</div>
+                                            <div class="col-sm-7">
+                                            <select class="form-control">
+                                                    <option selected="">Select country</option>
+                                                    <option>Malaysia</option>
+                                                    <option>Philiphene</option>
+                                                    <option>China</option>
+                                                    <option>UK</option>
+                                                    <option>Egypt</option>
+                                                    <option>Jordon</option>
+                                                    <option>India</option>
+                                                    <option>Indonesia</option>
+                                                    <option>Camboja</option>
+                                                    <option>Britain</option>
+                                                    <option>Korea</option>
+                                                    <option>France</option>
+                                                    <option>Paris</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                        <div class="bot-border"></div>
+
+                                        <div class="col-sm-5 col-xs-6 tital " >Religion:</div>
+                                            <div class="col-sm-7">
+                                                <select class="form-control">
+                                                    <option selected="">Select Religion</option>
+                                                    <option>Islam</option>
+                                                    <option>Christian</option>
+                                                    <option>Hindu</option>
+                                                    <option>Bhuda</option>
+                                                    <option>Egypt</option>
+                                                    <option>-No religion-</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="container-fluid">
+                                           <button type="submit" name="back" class="btn btn-primary" id="Back" onClick="javascript:window.location.href='cust_form.php'; return false">Back</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.col-xl-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-xs-12 col-sm-9">
-                    <form class="form-horizontal">
-                        <div class="panel panel-default">
-                            <div class="panel-body text-center">
-                                <img src="//placeholder.it/100" class="img-circle profile-avatar" alt="User avatar">
-                                <h6>Upload picture!!!</h6>
-                                <input type="file" class="form-control">
-                            </div>
-                        </div>
-                        <br>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <strong><h4 class="panel-title">User info</h4></strong>
-                            </div>
-                            <div class="panel-body">
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">Location</label>
-                                    <div class="col-sm-10">
-                                        <select class="form-control">
-                                            <option selected="">Select country</option>
-                                            <option>Selangor</option>
-                                            <option>Kedah</option>
-                                            <option>Perak</option>
-                                            <option>Sabah</option>
-                                            <option>Pahang</option>
-                                            <option>Sarawak</option>
-                                            <option>Pulau Pinang</option>
-                                            <option>Terengganu</option>
-                                            <option>Perlis</option>
-                                            <option>Johor</option>
-                                            <option>Negeri Sembilan</option>
-                                            <option>Melaka</option>
-                                            <option>Kelantan</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">Fullname</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">Position</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">Contact info</h4>
-                            </div>
-                            <div class="panel-body">
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">Work number</label>
-                                    <div class="col-sm-10">
-                                        <input type="tel" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">Mobile number</label>
-                                    <div class="col-sm-10">
-                                        <input type="tel" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">E-mail address</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">Work address</label>
-                                    <div class="col-sm-10">
-                                        <textarea rows="3" class="form-control"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">Security</h4>
-                            </div>
-                            <div class="panel-body">
-                                 <div class="form-group">
-                                     <label class="col-sm-2 control-label">Username</label>
-                                     <div class="col-sm-10">
-                                         <input type="password" class="form-control">
-                                     </div>
-                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">Password</label>
-                                    <div class="col-sm-10">
-                                        <input type="password" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">Confirm Password</label>
-                                    <div class="col-sm-10">
-                                        <input type="password" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-10 col-sm-offset-2">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                        <button type="reset" class="btn btn-default">Cancel</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- /.row -->
+            </form>
         </div>
-        <!-- /#page-wrapper -->
     </div>
 </div>
-<!-- /#wrapper -->
+
+                    
 
 <!-- jQuery -->
 <script src="../vendor/jquery/jquery.min.js"></script>

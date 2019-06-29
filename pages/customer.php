@@ -248,10 +248,6 @@ if(isset($_POST['submit'])){
                                 <label>Email</label>
                                 <input type="email" name="email_person" class="form-control" placeholder="Email" required>
                             </div>
-                            <div class="form-group" center>
-                                <label>Comment</label>
-                                <input type="textarea" name="comment" class="form-control" placeholder="Any memo/notes!">
-                            </div>
                             <div class="modal-footer"center>
                                 <div id="container">
                                     <button type="submit" name="back" class="btn btn-primary" id="Back" onClick="javascript:window.location.href='listcust.php'; return false">Back</button>

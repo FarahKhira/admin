@@ -37,6 +37,20 @@ if(isset($_POST['login'])) {
 
             $sql_query = mysqli_query($connection, "SELECT * FROM  users WHERE username = '$username' AND password = '$password'");
 
+            //if(mysqli_num_rows($sql_query)){
+                //$res = mysqli_fetch_array($sql_query);
+
+                //$_SESSION['username'] = ['username'];
+                //echo "<center>";
+                //echo "You are now login. click <a href="index.php>here</a>" to go back to main chat window";
+                //echo "</center>";
+            //} else {
+
+                //echo "<center>";
+                //echo "No user found. please go <a href="index.php">back</a> and enter the correct login<br>";
+                //echo "</center>";
+            //}
+
             if(!$sql_query) {
                 die('query failed' . mysqli_error($connection));
                 exit();
@@ -90,7 +104,7 @@ if(isset($_POST['login'])) {
 	<div class="loginbox">
 		<img src="../vendor/datatables/images/avatar.jpg" class="avatar">
 		<h1>Login Here</h1>
-		<form action="" method="post">
+		<form name="form2" action="login.php" method="post">
 			<p>Username</p>
 			<input type="text" name="username" placeholder="Enter Username">
 			<p>Password</p>
