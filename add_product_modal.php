@@ -14,20 +14,8 @@
             <input type="text" name="staffid" class="form-control">
           </div>
           <div class="form-group">
-            <label>Product Code</label>
-            <input type="text" name="name" class="form-control">
-          </div>
-          <div class="form-group">
-            <label>Brand</label>
-            <input type="text" name="initialname" class="form-control">
-          </div>
-          <div class="form-group">
-            <label>Manufacture origin</label>
-            <input type="text" name="username" class="form-control">
-          </div>
-          <div class="form-group">
-            <label>Price (per unit)</label>
-            <input type="email" name="email" class="form-control">
+            <label>Product</label>
+            <input type="text" name="division" class="form-control">
           </div>
           <div class="form-group">
             <label>Type</label>

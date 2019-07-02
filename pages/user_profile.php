@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Blank</title>
+    <title>Profile</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -44,95 +44,6 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-envelope fa-fw"></i>
-                </a>
-                <div class="dropdown-menu dropdown-messages dropdown-menu-right">
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <strong>John Smith</strong>
-                            <span class="float-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                        </div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <strong>John Smith</strong>
-                            <span class="float-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                        </div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <strong>John Smith</strong>
-                            <span class="float-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                        </div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item see-more text-center" href="#">
-                        <strong>Read All Messages</strong>
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
-                   aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-bell fa-fw"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-alerts">
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-comment fa-fw"></i> New Comment
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                            <span class="float-right text-muted small">12 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-envelope fa-fw"></i> Message Sent
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-tasks fa-fw"></i> New Task
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item see-more text-center" href="#">
-                        <strong>See All Alerts</strong>
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
-                   aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-user fa-fw"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-user">
@@ -160,43 +71,13 @@
                         <!-- /input-group -->
                     </li>
                     <li class="list-group-item">
-                        <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="indexstaff.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="#"><i class="fa fa-tags"></i> Products<span class="fa arrow"></span></a>
-                        <ul class="nav-second-level list-group nested">
-                            <li class="list-group-item">
-                                <a href="insert_product.php"> Insert Product </a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="view_product.php"> View Products </a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
+                        <a href="listcust.php"><i class="fa fa-tags"></i> Customers </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="#"><i class="fa fa-users fa-fw"></i> Customers<span class="fa arrow"></span></a>
-                        <ul class="nav-second-level list-group nested">
-                            <li class="list-group-item">
-                                <a href="insert_customer.php">View Customer </a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="view_customer.php">Edit Customers </a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second -->
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#"><i class="fa fa-edit fa-fw"></i> Staffs<span class="fa arrow"></span></a>
-                        <ul class="nav-second-level list-group nested">
-                            <li class="list-group-item">
-                                <a href="reg_staff.php">Register Staff</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="view_staff.php">View Staff</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
+                        <a href="cust_form.php"><i class="fa fa-users fa-fw"></i> New Customer </a>
                     </li>
                     <li class="list-group-item">
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Settings<span class="fa arrow"></span></a>

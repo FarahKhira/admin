@@ -29,7 +29,6 @@ if (isset($_POST['login'])) {
 				}
 
 				header('Location: index.php');
-				
 			}
 		} else {
 			die($conn->error);
@@ -53,7 +52,7 @@ if (isset($_POST['login'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Login Admin</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">

@@ -72,99 +72,10 @@ if(isset($_POST['submit'])){
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-envelope fa-fw"></i>
-                </a>
-                <div class="dropdown-menu dropdown-messages dropdown-menu-right">
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <strong>John Smith</strong>
-                            <span class="float-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                        </div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <strong>John Smith</strong>
-                            <span class="float-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                        </div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <strong>John Smith</strong>
-                            <span class="float-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                        </div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item see-more text-center" href="#">
-                        <strong>Read All Messages</strong>
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
-                   aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-bell fa-fw"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-alerts">
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-comment fa-fw"></i> New Comment
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                            <span class="float-right text-muted small">12 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-envelope fa-fw"></i> Message Sent
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-tasks fa-fw"></i> New Task
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item see-more text-center" href="#">
-                        <strong>See All Alerts</strong>
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
-                   aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-user fa-fw"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-user">
-                    <a class="dropdown-item" href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <a class="dropdown-item" href="profile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     <a class="dropdown-item" href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="login.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -190,11 +101,11 @@ if(isset($_POST['submit'])){
                     <li class="list-group-item">
                         <a href="indexstaff.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
-                     <li class="list-group-item">
+                    <li class="list-group-item">
                         <a href="listcust.php"><i class="fa fa-tags"></i> Customers </a>
                     </li>
-                     <li class="list-group-item">
-                        <a href="cust_form.php"><i class="fa fa-tags"></i> New Customer </a>
+                    <li class="list-group-item">
+                        <a href="cust_form.php"><i class="fa fa-users fa-fw"></i> New Customer </a>
                     </li>
                     <li class="list-group-item">
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Settings<span class="fa arrow"></span></a>
@@ -213,136 +124,139 @@ if(isset($_POST['submit'])){
             <!-- /.sidebar-collapse -->
             <div id="page-wrapper" class="p-4">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-12">
                             <img src="../vendor/datatables/images/download.png" alt="" width="255" height="72">
-                                <br>
-                                <h2><strong>Fibrecomm Network (M) Sdn Bhd (240859-H)</strong></h2>
-                                <p>
-                                    Level 37, Menara TM, Off Jalan Pantai Baharu, 59200 Kuala Lumpur, Malaysia<br>
-                                    Tel: <a href="#">+603-2246-8400</a><br>
-                                    Fax: <a href="#">+603-2246-8500</a><br>
-                                    <a href="#">www.fibrecomm.net.my</a><br>
-                                </p>
-                                <b>Quotation Date: </b><strong id="year"><a href="#">
-                                <?php
-                                    $dt = new DateTime();
-                                echo $dt->format('d-m-Y');
-                                ?></a></strong>
-                                <h4 class="bg-primary header text-center"><strong>QUOTATION /PROPOSAL</strong></h4>
-     
-                                <table>
-                                    <tr>
-                                        <th width="150">Company</th>
-                                        <td><?php echo $_SESSION['comp']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Contact Person</th>
-                                        <td><?php echo $_SESSION['con']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Mobile</th>
-                                        <td><?php echo $_SESSION['mob']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Email</th>
-                                        <td><?php echo $_SESSION['em']; ?></td>
-                                    </tr>
-                                </table><br>
-                                <table>
-                                    <tr>
-                                        <th width="150">Prepared by</th>
-                                        <td><?php echo $username; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Mobile</th>
-                                        <td><?php echo $mobile; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Email</th>
-                                        <td><?php echo $email; ?></td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                            <br>
+                            <h3><strong>Fibrecomm Network (M) Sdn Bhd (240859-H)</strong></h3>
+                            <p>
+                                Level 37, Menara TM, Off Jalan Pantai Baharu, 59200 Kuala Lumpur, Malaysia<br>
+                                Tel: <a href="#">+603-2246-8400</a><br>
+                                Fax: <a href="#">+603-2246-8500</a><br>
+                                <a href="#">www.fibrecomm.net.my</a><br>
+                                Serial No.: <a href="#"><?php echo $_SESSION['ref_num']; ?></a>
+                            </p>
+                            <p><b>Quotation Date: </b><strong id="year">
+                            <a href="#">
+                            <?php
+                                $dt = new DateTime();
+                            echo $dt->format('d-m-Y');
+                            ?></a></strong>
 
-                <br>
-                <p><strong>Order</strong></p>
-                <div class="row">
-                    <div class="col-md-12">
-                        <table class="table table-hover small-text" id="tb">
-                            <thead class="bg-primary">
-                                <tr class="tr-header">
-                                    <th class="text-center" rowspan="2"><label for="No">No</label></th>
-                                    <th class="text-center" rowspan="2"><label for="D">Service/Product<label></th>
-                                    <th class="text-center" colspan="2">Location</th>
-                                    <th class="text-center" rowspan="2"><label for="S">SLA(%)</label></th>
-                                    <th class="text-center" rowspan="2"><label for="C">Capacity (Mbps)</label></th>
-                                    <th class="text-center" rowspan="2"><label for="A">Annual Charges(RM/Year)</label></th>
-                                    <th class="text-center" rowspan="2"><label for="O">One Time Charges(RM)</label></th>
-                                    <th class="text-center" rowspan="2"><label><a href="javascript:void(0);" style="font-size:18px;" id="addMore" title="Add More Person"><i class="fa fa-plus"></i></a></label></th>
-                                </tr>
-                                <tr>
-                                    <th class="text-center"><label for="F">From</label></th>
-                                    <th class="text-center"><label for="T">To</label></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <form action="" method="post">
-                                <tr>
-                                    <td class="text-center">
-                                    <input type="No" class="form-control" id="No" placeholder="" name="No" value="1" readonly></td>
-                                    <td class="text-center">
-                                    <input type="D" class="form-control" id="D" placeholder="" name="D"></td>
-                                    <td class="text-center">
-                                    <input type="F" class="form-control" id="F" placeholder="" name="F"></td>
-                                    <td class="text-center">
-                                    <input type="T" class="form-control" id="T" placeholder="" name="T"></td>
-                                    <td class="text-center">
-                                    <input type="S" class="form-control" id="S" placeholder="" name="S"></td>
-                                    <td class="text-center">
-                                    <input type="C" class="form-control" id="C" placeholder="" name="C"></td>
-                                    <td class="text-center">
-                                    <input type="A" class="form-control" id="A" placeholder="" name="A"></td>
-                                    <td class="text-center">
-                                    <input type="O" class="form-control" id="O" placeholder="" name="O"></td> 
-                                    <td><a href='javascript:void(0);'  class='remove'><i class="fa fa-remove"></i></a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="modal-footer">
-                            <button type="submit" name="back" class="btn btn-primary" id="Back" onClick="javascript:window.location.href='cust_form.php'; return false">Back</button>
-                            <input type="submit" name="submit" class="btn btn-primary" value="Submit">
+                            <h4 class="bg-primary header text-center"><strong>QUOTATION /PROPOSAL</strong></h4>
                         </div>
                     </div>
                 </div>
-                </form>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="notes"><br>
-                            <p><strong>Notes</strong></p>
-                            <ol>
-                                <li>The price quoted is valid for one (1) month from the date of this quotation.</li>
-                                <li>The price is not inclusive of any Government Tax and Cross connect charges.</li>
-                                <li>Payment shall be made within thirty (30) days upon issuance of invoice.</li>
-                                <li>Payment shall be made quartely in advance.</li>
-                                <li>Early termination will incur penalty of 100% of the remaining contract value.</li>
-                                <li>Other terms and conditions are as per exciting Fibrecomm's Master Service Agreement and
-                                    new Service Order Form.</li>
-                                <li>The guaranteed SLA is 99.0%.</li>
-                                <li>Ready For services (RFS) is 4 to 8 weeks upon receipt of confirmation from customer.
-                                </li>
-                                <li>Fibrecomm reserves the right to adjust the price due to unforeseen circumstances at any
-                                    time.</li>
-                                <li>Fibrecomm to provide 10Gigabit Ethernet Interface.</li>
-                            </ol>
-                        </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table>
+                        <tr>
+                            <th width="150">Company</th>
+                            <td><?php echo $_SESSION['comp']; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Contact Person</th>
+                            <td><?php echo $_SESSION['con']; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Mobile</th>
+                            <td><?php echo $_SESSION['mob']; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td><?php echo $_SESSION['em']; ?></td>
+                        </tr>
+                    </table><br>
+                    <table>
+                        <tr>
+                            <th width="150">Prepared by</th>
+                            <td><?php echo $username; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Mobile</th>
+                            <td><?php echo $mobile; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td><?php echo $email; ?></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <br>
+            <p><strong>Order</strong></p>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table1 table-bordered">
+                        <thead class="bg-primary">
+                            <tr>
+                                <th class="text-center" rowspan="2"><label for="No">No</label></th>
+                                <th class="text-center" rowspan="2"><label for="D">Service/Product<label></th>
+                                <th class="text-center" colspan="2">Location</th>
+                                <th class="text-center" rowspan="2"><label for="S">SLA(%)</label></th>
+                                <th class="text-center" rowspan="2"><label for="C">Capacity (Mbps)</label></th>
+                                <th class="text-center" rowspan="2"><label for="A">Annual Charges(RM/Year)</label></th>
+                                <th class="text-center" rowspan="2"><label for="O">One Time Charges(RM)</label></th>
+                            </tr>
+                            <tr>
+                                <th class="text-center"><label for="F">From</label></th>
+                                <th class="text-center"><label for="T">To</label></th>
+                            </tr>
+                        </thead>
+                         <tbody>
+                         <form action="" method="post">
+                            <tr>
+                                <td class="text-center">
+                                <input type="No" class="form-control" id="No" placeholder="" name="No" value="1" readonly></td>
+                                <td class="text-center">
+                                <input type="D" class="form-control" id="D" placeholder="" name="D"></td>
+                                <td class="text-center">
+                                <input type="F" class="form-control" id="F" placeholder="" name="F"></td>
+                                <td class="text-center">
+                                <input type="T" class="form-control" id="T" placeholder="" name="T"></td>
+                                <td class="text-center">
+                                <input type="S" class="form-control" id="S" placeholder="" name="S"></td>
+                                <td class="text-center">
+                                <input type="C" class="form-control" id="C" placeholder="" name="C"></td>
+                                <td class="text-center">
+                                <input type="A" class="form-control" id="A" placeholder="" name="A"></td>
+                                <td class="text-center">
+                                <input type="O" class="form-control" id="O" placeholder="" name="O"></td> 
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="modal-footer">
+                        <button type="submit" name="back" class="btn btn-primary" id="Back" onClick="javascript:window.location.href='form.php'; return false">Back</button>
+                        <input type="submit" name="submit" class="btn btn-primary" value="Submit">
+                    </div>
+                </div>
+            </div>
+            </form>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="notes"><br>
+                        <p><strong>Notes</strong></p>
+                        <ol>
+                            <li>The price quoted is valid for one (1) month from the date of this quotation.</li>
+                            <li>The price is not inclusive of any Government Tax and Cross connect charges.</li>
+                            <li>Payment shall be made within thirty (30) days upon issuance of invoice.</li>
+                            <li>Payment shall be made quartely in advance.</li>
+                            <li>Early termination will incur penalty of 100% of the remaining contract value.</li>
+                            <li>Other terms and conditions are as per exciting Fibrecomm's Master Service Agreement and
+                                new Service Order Form.</li>
+                            <li>The guaranteed SLA is 99.0%.</li>
+                            <li>Ready For services (RFS) is 4 to 8 weeks upon receipt of confirmation from customer.
+                            </li>
+                            <li>Fibrecomm reserves the right to adjust the price due to unforeseen circumstances at any
+                                time.</li>
+                            <li>Fibrecomm to provide 10Gigabit Ethernet Interface.</li>
+                        </ol>
                     </div>
                 </div>
             </div>

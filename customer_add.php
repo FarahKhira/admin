@@ -2,17 +2,13 @@
 include "includes/db.php";
 
 
-if (isset($_SESSION['id']) && $_SESSION['role'] == 'staff') {
+if (isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
 	
 } else {
 	header('Location: login.php');
 }
 
- ?>
-
- <?php
 ?>
-
 
 <?php include "includes/header.php"; ?>
 

@@ -2,17 +2,13 @@
 include "includes/db.php";
 
 
-if (isset($_SESSION['id']) && $_SESSION['role'] == 'staff') {
+if (isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
 	
 } else {
 	header('Location: login.php');
 }
 
- ?>
-
- <?php
 ?>
-
 
 <?php include "includes/header.php"; ?>
 
@@ -46,7 +42,7 @@ if (isset($_SESSION['id']) && $_SESSION['role'] == 'staff') {
                             </div>
                         </div>
                         <div class="card-footer card-default">
-                            <a href="products.php">
+                            <a href="product_add.php">
                                 <span class="float-sm-left">View Details</span>
                                 <span class="float-sm-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
@@ -68,7 +64,7 @@ if (isset($_SESSION['id']) && $_SESSION['role'] == 'staff') {
                             </div>
                         </div>
                         <div class="card-footer card-green">
-                            <a href="customers.php">
+                            <a href="customer_add.php">
                                 <span class="float-sm-left">View Details</span>
                                 <span class="float-sm-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
@@ -90,7 +86,7 @@ if (isset($_SESSION['id']) && $_SESSION['role'] == 'staff') {
                             </div>
                         </div>
                         <div class="card-footer card-yellow">
-                            <a href="staffs.php">
+                            <a href="staff_add.php">
                                 <span class="float-sm-left">View Details</span>
                                 <span class="float-sm-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>

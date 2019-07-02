@@ -1,7 +1,16 @@
-<?php
+<?php 
+
+// ob_start();
+
+include("../pages/includes/db.php");
+session_start();
+
+$id = $_SESSION['id'];
+$username = $_SESSION['username'];
+$email = $_SESSION['email'];
+$mobile = $_SESSION['mobile'];
+
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -121,95 +130,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
         </div>
 
         <ul class="nav navbar-nav ml-md-auto flex-row navbar-top-links">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
-                   aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-envelope fa-fw"></i>
-                </a>
-                <div class="dropdown-menu dropdown-messages dropdown-menu-right">
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <strong>Khira</strong>
-                            <span class="float-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                        </div>
-                        <div>Please do check for this customer details.</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <strong>Khira</strong>
-                            <span class="float-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                        </div>
-                        <div>Need to edit the product contract...</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <strong>Farah</strong>
-                            <span class="float-right text-muted">
-                                        <em>Today</em>
-                                    </span>
-                        </div>
-                        <div>Admin, please do recheck the price for fibre optic contract...</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item see-more text-center" href="#">
-                        <strong>Read All Messages</strong>
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
-                   aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-bell fa-fw"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-alerts">
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-users fa-fw"></i> New Comment
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                            <span class="float-right text-muted small">12 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-envelope fa-fw"></i> Message Sent
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-tasks fa-fw"></i> New Task
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item see-more text-center" href="#">
-                        <strong>See All Alerts</strong>
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                </div>
-            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
                    aria-haspopup="true" aria-expanded="false">

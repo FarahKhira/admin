@@ -2,7 +2,7 @@
 include "includes/db.php";
 
 
-if (isset($_SESSION['id']) && $_SESSION['role'] == 'staff') {
+if (isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
 	
 } else {
 	header('Location: login.php');
@@ -45,10 +45,8 @@ if (isset($_SESSION['id']) && $_SESSION['role'] == 'staff') {
             					<th>Email</th>
                                 <th>Serial No.</th>
                                 <th>Section</th>
-            					<th>Product Code</th>
-                                <th>Type</th>
+            					<th>Product</th>
                                 <th>Contract</th>
-                                <th>Price (Unit)</th>
                                 <th>Total Price</th>
             					<th>Update</th>
             					<th>Delete</th>
@@ -63,10 +61,8 @@ if (isset($_SESSION['id']) && $_SESSION['role'] == 'staff') {
                                 <td>pfizer@net.my</td>
                                 <td>FCN/Farahsyasya/Gm/100-01</td>
                                 <td>DM</td>
-                                <td>FortiGate 30E Firewall</td>
                                 <td>Ip transit</td>
                                 <td>3 Years</td>
-                                <td>RM 1928.20</td>
                                 <td>RM 69,415.20</td>
                                 <td><a href="#"><i class="fa fa-edit"></i></a></td>
                                 <td><a href="#">X</a></td>

@@ -53,102 +53,13 @@ $mobile = $_SESSION['mobile'];
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-envelope fa-fw"></i>
-                </a>
-                <div class="dropdown-menu dropdown-messages dropdown-menu-right">
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <strong>John Smith</strong>
-                            <span class="float-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                        </div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <strong>John Smith</strong>
-                            <span class="float-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                        </div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <strong>John Smith</strong>
-                            <span class="float-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                        </div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item see-more text-center" href="#">
-                        <strong>Read All Messages</strong>
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
-                   aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-bell fa-fw"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-alerts">
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-comment fa-fw"></i> New Comment
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                            <span class="float-right text-muted small">12 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-envelope fa-fw"></i> Message Sent
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-tasks fa-fw"></i> New Task
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item see-more text-center" href="#">
-                        <strong>See All Alerts</strong>
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
-                   aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-user fa-fw"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-user">
-                    <a class="dropdown-item" href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <a class="dropdown-item" href="profile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     <a class="dropdown-item" href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <a class="dropdown-item" href="login.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                 </div>
             </li>
         </ul>
@@ -171,11 +82,11 @@ $mobile = $_SESSION['mobile'];
                     <li class="list-group-item">
                         <a href="indexstaff.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
-                     <li class="list-group-item">
+                    <li class="list-group-item">
                         <a href="listcust.php"><i class="fa fa-tags"></i> Customers </a>
                     </li>
-                     <li class="list-group-item">
-                        <a href="cust_form.php"><i class="fa fa-tags"></i> New Customer </a>
+                    <li class="list-group-item">
+                        <a href="cust_form.php"><i class="fa fa-users fa-fw"></i> New Customer </a>
                     </li>
                     <li class="list-group-item">
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Settings<span class="fa arrow"></span></a>
@@ -192,156 +103,151 @@ $mobile = $_SESSION['mobile'];
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
-            <div id="page-wrapper" class="p-4">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <img src="../vendor/datatables/images/download.png" alt="" width="255" height="72">
-                                <br>
-                                <h2><strong>Fibrecomm Network (M) Sdn Bhd (240859-H)</strong></h2>
-                                <p>
-                                    Level 37, Menara TM, Off Jalan Pantai Baharu, 59200 Kuala Lumpur, Malaysia<br>
-                                    Tel: <a href="#">+603-2246-8400</a><br>
-                                    Fax: <a href="#">+603-2246-8500</a><br>
-                                    <a href="#">www.fibrecomm.net.my</a><br>
-                                    Serial No.: <a href="#"><?php echo $_SESSION['ref_num']; ?></a>
-                                </p>
-                                <b>Quotation Date: </b><strong id="year"><a href="#">
-                                <?php
-                                    $dt = new DateTime();
-                                echo $dt->format('d-m-Y');
-                                ?></a></strong>
-                            <h4 class="bg-primary header text-center"><strong>QUOTATION /PROPOSAL</strong></h4>
-                        </div>
-                    </div>
-            
-                    <div class="row">
-                        <div class="col-md-12">
-                            <table>
-                                <tr>
-                                    <th width="150">Company</th>
-                                    <td><?php echo $_SESSION['company']; ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Contact Person</th>
-                                    <td><?php echo $_SESSION['contact_person']?></td>
-                                </tr>
-                                <tr>
-                                    <th>Mobile</th>
-                                    <td><?php echo $_SESSION['mobile_person']?></td>
-                                </tr>
-                                <tr>
-                                    <th>Email</th>
-                                    <td><?php echo $_SESSION['email_person']?></td>
-                                </tr>
+        </div>
 
-                            </table><br>
-                            <table>
-                                <tr>
-                                    <th width="150">Prepared by</th>
-                                    <td><?php echo $username; ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Mobile</th>
-                                    <td><?php echo $mobile; ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Email</th>
-                                    <td><?php echo $email; ?></td>
-                                </tr>
+        <div id="page-wrapper" class="p-4">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-xl-12">
+                        <img src="../vendor/datatables/images/download.png" alt="" width="255" height="72">
+                        <br>
+                        <h3><strong>Fibrecomm Network (M) Sdn Bhd (240859-H)</strong></h3>
+                        <p>
+                            Level 37, Menara TM, Off Jalan Pantai Baharu, 59200 Kuala Lumpur, Malaysia<br>
+                            Tel: <a href="#">+603-2246-8400</a><br>
+                            Fax: <a href="#">+603-2246-8500</a><br>
+                            <a href="#">www.fibrecomm.net.my</a><br>
+                            Serial No.: <a href="#"><?php echo $_SESSION['ref_num']; ?></a>
+                        </p>
+                        <p><b>Quotation Date: </b><strong id="year">
+                        <a href="#">
+                        <?php
+                            $dt = new DateTime();
+                        echo $dt->format('d-m-Y');
+                        ?></a></strong>
 
-                            </table>
-                        </div>
-                    </div>
-
-                    <br>
-                    <p><strong>Order</strong></p>
-                    <div class="row">
-                        <div class="col-xl-6">
-                            <table class="table1 table-bordered">
-                                <thead class="bg-primary">
-                                    <tr>
-                                        <th class="text-center" rowspan="2"><label for="No">No</label></th>
-                                        <th class="text-center" rowspan="2"><label for="DOS">Service/Product<label></th>
-                                        <th class="text-center" colspan="2">Location</th>
-                                        <th class="text-center" rowspan="2"><label for="SLA">SLA(%)</label></th>
-                                        <th class="text-center" rowspan="2"><label for="CAP">Capacity (Mbps)</label></th>
-                                        <th class="text-center" rowspan="2"><label for="AC">Annual Charges(RM/Year)</label></th>
-                                        <th class="text-center" rowspan="2"><label for="OTC">One Time Charges(RM)</label></th>
-                                    </tr>
-                                    <tr>
-                                        <th class="text-center"><label for="from">From</label></th>
-                                        <th class="text-center"><label for="to">To</label></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-center">1</td>
-                                        <td class="text-center"><?php echo $_SESSION['DOS']?></td>
-                                        <td class="text-center"><?php echo $_SESSION['from']?></td>
-                                        <td class="text-center"><?php echo $_SESSION['to']?></td>
-                                        <td class="text-center"><?php echo $_SESSION['SLA']?></td>
-                                        <td class="text-center"><?php echo $_SESSION['CAP']?></td>
-                                        <td class="text-center"><?php echo $_SESSION['AC']?></td>
-                                        <td class="text-center"><?php echo $_SESSION['OTC']?></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="notes"><br>
-                                <p><strong>Notes</strong></p>
-                                <ol>
-                                    <li>The price quoted is valid for one (1) month from the date of this quotation.</li>
-                                    <li>The price is not inclusive of any Government Tax and Cross connect charges.</li>
-                                    <li>Payment shall be made within thirty (30) days upon issuance of invoice.</li>
-                                    <li>Payment shall be made quartely in advance.</li>
-                                    <li>Early termination will incur penalty of 100% of the remaining contract value.</li>
-                                    <li>Other terms and conditions are as per exciting Fibrecomm's Master Service Agreement and
-                                        new Service Order Form.</li>
-                                    <li>The guaranteed SLA is 99.0%.</li>
-                                    <li>Ready For services (RFS) is 4 to 8 weeks upon receipt of confirmation from customer.
-                                    </li>
-                                    <li>Fibrecomm reserves the right to adjust the price due to unforeseen circumstances at any
-                                        time.</li>
-                                    <li>Fibrecomm to provide 10Gigabit Ethernet Interface.</li>
-                                </ol>
-                            </div>
-                        </div>
+                        <h4 class="bg-primary header text-center"><strong>QUOTATION /PROPOSAL</strong></h4>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table>
+                        <tr>
+                            <th width="150">Company</th>
+                            <td><?php echo $_SESSION['company']; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Contact Person</th>
+                            <td><?php echo $_SESSION['contact_person']; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Mobile</th>
+                            <td><?php echo $_SESSION['mobile_person']; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td><?php echo $_SESSION['email_person']; ?></td>
+                        </tr>
+                    </table><br>
+                    <table>
+                        <tr>
+                            <th width="150">Prepared by</th>
+                            <td><?php echo $username; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Mobile</th>
+                            <td><?php echo $mobile; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td><?php echo $email; ?></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
 
-
-                <div class="row">
-                    <div class="modal-footer">
-                        <div id="container-fluid">
-                            <div class="col-md-12">
-                                <input type="submit" name="home" id="home_btn" class="btn btn-primary"  onClick="javascript:window.location.href='indexstaff.php'; return false" value="Home">
-                                <input type="submit" name="edit" id="edit_btn" class="btn btn-primary"  onClick="javascript:window.location.href='custdisplay.php'; return false" value="Edit">
-                                <input type="button" name="save" id="save_btn" class="btn btn-primary" value="Save">
-                                <input type="button" name="pdf" id="pdf_btn" class="btn btn-primary" value="Pdf">
-                                <input type="button" name="print" id="print_btn" class="btn btn-primary" value="Print">
-                            </div>
-                        </div>
+            <br>
+            <p><h4><strong>Order</strong></h4></p>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table1 table-bordered">
+                        <thead class="bg-primary">
+                            <tr>
+                                <th class="text-center" rowspan="2"><label for="No">No</label></th>
+                                <th class="text-center" rowspan="2"><label for="DOS">Service/Product<label></th>
+                                <th class="text-center" colspan="2">Location</th>
+                                <th class="text-center" rowspan="2"><label for="SLA">SLA(%)</label></th>
+                                <th class="text-center" rowspan="2"><label for="CAP">Capacity (Mbps)</label></th>
+                                <th class="text-center" rowspan="2"><label for="AC">Annual Charges(RM/Year)</label></th>
+                                <th class="text-center" rowspan="2"><label for="OTC">One Time Charges(RM)</label></th>
+                            </tr>
+                            <tr>
+                                <th class="text-center"><label for="form">From</label></th>
+                                <th class="text-center"><label for="to">To</label></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <form class="form-control">
+                                <tr>
+                                    <td class="text-center">1</td>
+                                    <td class="text-center"><?php echo $_SESSION['DOS']?></td>
+                                    <td class="text-center"><?php echo $_SESSION['from']?></td>
+                                    <td class="text-center"><?php echo $_SESSION['to']?></td>
+                                    <td class="text-center"><?php echo $_SESSION['SLA']?></td>
+                                    <td class="text-center"><?php echo $_SESSION['CAP']?></td>
+                                    <td class="text-center"><?php echo $_SESSION['AC']?></td>
+                                    <td class="text-center"><?php echo $_SESSION['OTC']?></td>
+                                </tr>
+                            </form>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="notes"><br>
+                        <p><strong>Notes</strong></p>
+                        <ol>
+                            <li>The price quoted is valid for one (1) month from the date of this quotation.</li>
+                            <li>The price is not inclusive of any Government Tax and Cross connect charges.</li>
+                            <li>Payment shall be made within thirty (30) days upon issuance of invoice.</li>
+                            <li>Payment shall be made quartely in advance.</li>
+                            <li>Early termination will incur penalty of 100% of the remaining contract value.</li>
+                            <li>Other terms and conditions are as per exciting Fibrecomm's Master Service Agreement and
+                                new Service Order Form.</li>
+                            <li>The guaranteed SLA is 99.0%.</li>
+                            <li>Ready For services (RFS) is 4 to 8 weeks upon receipt of confirmation from customer.
+                            </li>
+                            <li>Fibrecomm reserves the right to adjust the price due to unforeseen circumstances at any
+                                time.</li>
+                            <li>Fibrecomm to provide 10Gigabit Ethernet Interface.</li>
+                        </ol>
                     </div>
                 </div>
-
-
-                <div class="printArea">
-                    <div class="row">
-                        <div class="col-md-12">
-                            &copy; Copyright 2019 - Fibrecomm Network
-                        </div>
+            </div>
+            <div class="row">
+            <div class="modal-footer">
+                <div id="container">
+                    <div class="col-md-12">
+                        <input type="submit" name="home" id="home_btn" class="btn btn-primary"  onClick="javascript:window.location.href='index.php'; return false" value="Home">
+                        <input type="submit" name="edit" id="edit_btn" class="btn btn-primary"  onClick="javascript:window.location.href='custdisplay.php'; return false" value="Edit">
+                        <input type="button" name="save" id="save_btn" class="btn btn-primary" value="Save">
+                        <input type="button" name="pdf" id="pdf_btn" class="btn btn-primary" value="Pdf">
+                        <input type="button" name="print" id="print_btn" class="btn btn-primary" value="Print">
                     </div>
                 </div>
             </div>
         </div>
+        <div class="printArea">
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; Copyright 2019 - Fibrecomm Network
+                </div>
+            </div>
+        </div>   
     </div>
 </div>
-
-
 </body>
 <!-- jQuery -->
 <script src="../vendor/jquery/jquery.min.js"></script>
