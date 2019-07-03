@@ -122,32 +122,35 @@ if(isset($_POST['submit'])){
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
-            <div id="page-wrapper" class="p-4">
-                <div class="container-fluid">
-                    <div class="row justify-content-center">
-                        <div class="col-xl-12">
-                            <img src="../vendor/datatables/images/download.png" alt="" width="255" height="72">
-                            <br>
-                            <h3><strong>Fibrecomm Network (M) Sdn Bhd (240859-H)</strong></h3>
-                            <p>
-                                Level 37, Menara TM, Off Jalan Pantai Baharu, 59200 Kuala Lumpur, Malaysia<br>
-                                Tel: <a href="#">+603-2246-8400</a><br>
-                                Fax: <a href="#">+603-2246-8500</a><br>
-                                <a href="#">www.fibrecomm.net.my</a><br>
-                                Serial No.: <a href="#"><?php echo $_SESSION['ref_num']; ?></a>
-                            </p>
-                            <p><b>Quotation Date: </b><strong id="year">
-                            <a href="#">
-                            <?php
-                                $dt = new DateTime();
-                            echo $dt->format('d-m-Y');
-                            ?></a></strong>
+        </div>
 
-                            <h4 class="bg-primary header text-center"><strong>QUOTATION /PROPOSAL</strong></h4>
-                        </div>
+
+        <div id="page-wrapper" class="p-4">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-xl-12">
+                        <img src="../vendor/datatables/images/download.png" alt="" width="255" height="72">
+                        <br>
+                        <h3><strong>Fibrecomm Network (M) Sdn Bhd (240859-H)</strong></h3>
+                        <p>
+                            Level 37, Menara TM, Off Jalan Pantai Baharu, 59200 Kuala Lumpur, Malaysia<br>
+                            Tel: <a href="#">+603-2246-8400</a><br>
+                            Fax: <a href="#">+603-2246-8500</a><br>
+                            <a href="#">www.fibrecomm.net.my</a><br>
+                            Serial No.: <a href="#"><?php echo $_SESSION['ref_num']; ?></a>
+                        </p>
+                        <p><b>Quotation Date: </b><strong id="year">
+                        <a href="#">
+                        <?php
+                            $dt = new DateTime();
+                        echo $dt->format('d-m-Y');
+                        ?></a></strong>
+
+                        <h4 class="bg-primary header text-center"><strong>QUOTATION /PROPOSAL</strong></h4>
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-12">
                     <table>
@@ -205,26 +208,27 @@ if(isset($_POST['submit'])){
                                 <th class="text-center"><label for="T">To</label></th>
                             </tr>
                         </thead>
-                         <tbody>
-                         <form action="" method="post">
-                            <tr>
-                                <td class="text-center">
-                                <input type="No" class="form-control" id="No" placeholder="" name="No" value="1" readonly></td>
-                                <td class="text-center">
-                                <input type="D" class="form-control" id="D" placeholder="" name="D"></td>
-                                <td class="text-center">
-                                <input type="F" class="form-control" id="F" placeholder="" name="F"></td>
-                                <td class="text-center">
-                                <input type="T" class="form-control" id="T" placeholder="" name="T"></td>
-                                <td class="text-center">
-                                <input type="S" class="form-control" id="S" placeholder="" name="S"></td>
-                                <td class="text-center">
-                                <input type="C" class="form-control" id="C" placeholder="" name="C"></td>
-                                <td class="text-center">
-                                <input type="A" class="form-control" id="A" placeholder="" name="A"></td>
-                                <td class="text-center">
-                                <input type="O" class="form-control" id="O" placeholder="" name="O"></td> 
-                            </tr>
+                        <tbody>
+                            <form action="" method="post">
+                                <tr>
+                                    <td class="text-center">
+                                    <input type="No" class="form-control" id="No" placeholder="" name="No" value="1" readonly></td>
+                                    <td class="text-center">
+                                    <input type="D" class="form-control" id="D" placeholder="" name="D"></td>
+                                    <td class="text-center">
+                                    <input type="F" class="form-control" id="F" placeholder="" name="F"></td>
+                                    <td class="text-center">
+                                    <input type="T" class="form-control" id="T" placeholder="" name="T"></td>
+                                    <td class="text-center">
+                                    <input type="S" class="form-control" id="S" placeholder="" name="S"></td>
+                                    <td class="text-center">
+                                    <input type="C" class="form-control" id="C" placeholder="" name="C"></td>
+                                    <td class="text-center">
+                                    <input type="A" class="form-control" id="A" placeholder="" name="A"></td>
+                                    <td class="text-center">
+                                    <input type="O" class="form-control" id="O" placeholder="" name="O"></td> 
+                                </tr>
+                            </form>
                         </tbody>
                     </table>
                 </div>
@@ -232,7 +236,7 @@ if(isset($_POST['submit'])){
             <div class="row">
                 <div class="col-md-12">
                     <div class="modal-footer">
-                        <button type="submit" name="back" class="btn btn-primary" id="Back" onClick="javascript:window.location.href='form.php'; return false">Back</button>
+                        <button type="submit" name="back" class="btn btn-primary" id="Back" onClick="javascript:window.location.href='cust_form.php'; return false">Back</button>
                         <input type="submit" name="submit" class="btn btn-primary" value="Submit">
                     </div>
                 </div>
@@ -260,16 +264,15 @@ if(isset($_POST['submit'])){
                     </div>
                 </div>
             </div>
-        </div>
-        <p></p>
-        <div class="row">
-            <div class="col-md-12">
-                &copy; Copyright 2019 - Fibrecomm Network
+            <p></p>
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; Copyright 2019 - Fibrecomm Network
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 </body>
 <!-- jQuery -->
 <script src="../vendor/jquery/jquery.min.js"></script>
@@ -321,23 +324,6 @@ if(isset($_POST['submit'])){
     console.log((totalCustomers + 1)+''+months+''+year);
     document.getElementById('output').innerHTML = output;
 }
-
-    // Print function
-
-    $(function(){
-    $('#addMore').on('click', function() {
-              var data = $("#tb tr:eq(1)").clone(true).appendTo("#tb");
-              data.find("input").val('');
-     });
-     $(document).on('click', '.remove', function() {
-         var trIndex = $(this).closest("tr").index();
-            if(trIndex>1) {
-             $(this).closest("tr").remove();
-           } else {
-             alert("Sorry!! Can't remove first row!");
-           }
-      });
-});      
 </script>
 
 
