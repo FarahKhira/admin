@@ -3,6 +3,7 @@
 // ob_start();
 
 include("includes/db.php");
+include("includes/db1.php");
 session_start();
 
 $id = $_SESSION['id'];
@@ -60,7 +61,7 @@ if(isset($_POST['submit'])){
         form input, button{
             padding: 5px;
         }
-        table {
+        /*table {
             width: 100%;
             margin-bottom: 20px;
             border-collapse: collapse;
@@ -71,7 +72,7 @@ if(isset($_POST['submit'])){
         table th, table td{
             padding: 10px;
             text-align: left;
-        }
+        }*/
     </style>
     
 </head>
@@ -211,18 +212,24 @@ if(isset($_POST['submit'])){
             </div>
             <br>
             <p><h4><strong>Order</strong></h4></p>
+            <div class="col-lg-12">
+            <a href="#" class="btn btn-default" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-plus fa-2x"></i></a>
+            <?php include "add_ordercust.php"; ?>
             <div class="row">
                 <div class="col-md-12">
-                <table class="table1 table-bordered">
+                <table class="table table-bordered">
                     <thead class="bg-primary">
                         <tr>
                             <th class="text-center" rowspan="2"><label for="No">No</label></th>
                             <th class="text-center" rowspan="2"><label for="DOS">Service/Product<label></th>
+                            <th class="text-center" rowspan="2"><label for="type">Type</label></th>   
                             <th class="text-center" colspan="2">Location</th>
                             <th class="text-center" rowspan="2"><label for="SLA">SLA(%)</label></th>
                             <th class="text-center" rowspan="2"><label for="CAP">Capacity (Mbps)</label></th>
                             <th class="text-center" rowspan="2"><label for="AC">Annual Charges(RM/Year)</label></th>
                             <th class="text-center" rowspan="2"><label for="OTC">One Time Charges(RM)</label></th>
+                            <th class="text-center" rowspan="2"><label for="Edit">Edit</label></th>
+                            <th class="text-center" rowspan="2"><label for="Delete">Delete</label></th>
                         </tr>
                         <tr>
                             <th class="text-center"><label for="form">From</label></th>
@@ -230,38 +237,40 @@ if(isset($_POST['submit'])){
                         </tr>
                     </thead>
                     <tbody>
-                        <form>
-                            <tr>
-                                <td class="text-center">
-                                <input type="No" class="form-control" id="No" placeholder="" name="No" value="1" readonly></td>
-                                <td class="text-center">
-                                <input type="DOS" class="form-control" id="DOS" placeholder="" name="DOS"></td>
-                                <td class="text-center">
-                                <input type="from" class="form-control" id="from" placeholder="" name="from"></td>
-                                <td class="text-center">
-                                <input type="to" class="form-control" id="to" placeholder="" name="to"></td>
-                                <td class="text-center">
-                                <input type="SLA" class="form-control" id="SLA" placeholder="" name="SLA"></td>
-                                <td class="text-center">
-                                <input type="CAP" class="form-control" id="CAP" placeholder="" name="CAP"></td>
-                                <td class="text-center">
-                                <input type="AC" class="form-control" id="AC" placeholder="" name="AC"></td>
-                                <td class="text-center">
-                                <input type="OTC" class="form-control" id="OTC" placeholder="" name="OTC"></td> 
-                            </tr>
-                        </form>
+                        <?php 
+
+                        $sql = $conn1->query("SELECT * FROM product_orders");
+
+                        if ($sql) {
+                            
+                            $count = 1;
+                            while ($row = $sql->fetch_assoc()) {
+                                
+                                $id = $row['id'];
+                                echo "<tr>";
+                                echo "<td>$count</td>";
+                                echo "<td>".$row['type']."</td>";
+                                echo "<td>".$row['services_products']."</td>";
+                                echo "<td>".$row['from_to']."</td>";
+                                echo "<td>".$row['to_from']."</td>";
+                                echo "<td>".$row['sla']."</td>";
+                                echo "<td>".$row['capacity']."</td>";
+                                echo "<td>".$row['annual_charges']."</td>";
+                                echo "<td>".$row['otcharges']."</td>";
+                                echo "<td><a href=\"editcustorder.php?id=$id\"><i class=\"fa fa-edit\"></i></a></td>";
+                                echo "<td><a href=\"delcustorder.php?id=$id\" onclick=\"return confirm('Are you sure you want to delete this order?')\">X</a></td>";
+                                echo "</tr>";
+                                $count++;
+                            }
+                        }
+
+                         ?>
+                        
                     </tbody>
                 </table>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="modal-footer">
-                        <input type="submit" name="back" id="back_btn" class="btn btn-primary"  onClick="javascript:window.location.href='customer.php'; return false" value="Back">
-                        <input type="submit" name="submit" id="submit_btn" class="btn btn-primary" onClick="javascript:window.location.href='output.php'; return false" value="Submit">
-                    </div>
-                </div>
-            </div>
+            
             </form>
             <div class="row">
                 <div class="col-md-12">
@@ -317,32 +326,6 @@ if(isset($_POST['submit'])){
 <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function(){
-        $(".add-row").click(function(){
-            var No = $("#No").val();
-            var DOS = $("#DOS").val();
-            var SLA = $("#SLA").val();
-            var CAP = $("AC").val();
-            var AC = $("OTC").val();
-            var From = $("From").val();
-            var To = $("To").val();
-            var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + No + "</td><td>" + DOS + "</td><td>" + SLA +"</td><td>" + CAP +"</td><td>" + AC +"</td><td>" + OTC +"</td><td>" + From +"</td><td>" + To +"</td></tr>";
-            $("table tbody").append(markup);
-        });
-        
-        // Find and remove selected table rows
-        $(".delete-row").click(function(){
-            $("table tbody").find('input[name="record"]').each(function(){
-                if($(this).is(":checked")){
-                    $(this).parents("tr").remove();
-                } else {
-                    alert("Sorry!! Can't remove first row!!")
-                }
-            });
-        });
-    });    
-</script>
 
 <!-- Custom Theme JavaScript -->
 <script src="../dist/js/sb-admin-2.js"></script>
@@ -363,5 +346,39 @@ if(isset($_POST['submit'])){
         })
     });
 
+</script>
+<script>
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
+
+    $('#type').on('change', function(){
+        var type_id = $(this).val();
+
+        $.ajax({
+            url: "process_type.php",
+            method: "POST",
+            data: {type_id: type_id},
+            dataType: "text",
+            success: function(data){
+                $('#DOS').html(data);
+            }
+        });
+
+
+    });
+
+
+   
+
+    
+
+
+
+    
+   
+
+
+    // Print function
 </script>
 </html>

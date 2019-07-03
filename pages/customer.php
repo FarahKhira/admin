@@ -8,7 +8,7 @@ $userID = $_SESSION['staffid'];
 $initialname = $_SESSION['initialname'];
 
 if(isset($_POST['submit'])){
-	echo $refNum = $_POST['refNum'];
+	$refNum = $_POST['refNum'];
 	$_SESSION['ref_num'] = $refNum;
 	$_SESSION['company'] = $CCompany = $_POST['company'];
 	$_SESSION['contact_person'] = $CContactPerson = $_POST['contact_person'];
@@ -24,6 +24,9 @@ if(isset($_POST['submit'])){
 		header('Location: custdisplay.php');
 	}
 }
+
+
+// 
 
 
 ?>
@@ -190,12 +193,9 @@ if(isset($_POST['submit'])){
 
 <!-- Custom Theme JavaScript -->
 <script src="../dist/js/sb-admin-2.js"></script>
-<script src="js/printThis.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+
 <script>
-	$(document).ready(function() {
-		$('#summernote').summernote();
-	});
+	
 
 // Print area
     // document.getElementById('print_btn').addEventListener('click', function () {
@@ -204,11 +204,11 @@ if(isset($_POST['submit'])){
     //     $('.printArea').printThis();
     // });
     // var year = document.getElementById('year');
-    data = new Date();
+    // data = new Date();
     //data.format("YYYY-m-D");
 
-    $('#year').text(new Date().getFullYear());
-    year.textContent = data.toLocaleDateString("en-GB");
+    // $('#year').text(new Date().getFullYear());
+    // year.textContent = data.toLocaleDateString("en-GB");
 
     // document.getElementById('category').addEventListener('change', function() {
 	// 	var cat = this.value;

@@ -289,20 +289,49 @@ if(isset($_POST['submit'])){
 
 
 <script>
-    document.getElementById('print_btn').addEventListener('click', function () {
-        window.print();
-        PrintElem();
-        $('.printArea').printThis();
+    $(document).ready(function() {
+        $('#summernote').summernote();
     });
-    var year = document.getElementById('year');
+
+// Print area
+    // document.getElementById('print_btn').addEventListener('click', function () {
+    //     window.print();
+    //     PrintElem();
+    //     $('.printArea').printThis();
+    // });
+    // var year = document.getElementById('year');
     data = new Date();
-    data.format("YYYY-m-D");
+    //data.format("YYYY-m-D");
 
     $('#year').text(new Date().getFullYear());
     year.textContent = data.toLocaleDateString("en-GB");
 
+    // document.getElementById('category').addEventListener('change', function() {
+    //  var cat = this.value;
+    //  refNum(cat);
+    // });
+
+    // button click event
+    document.getElementById('userForm').addEventListener('submit', function(){
+        // e.preventDefault();
+
+        // selection value
+        var section = document.getElementById('sec').value;
+        // console.log(section);
+        refNum(section);
+
+    });
+
+    
+
+
+
+    
     // refNum
-    function refNum(cat = 'DM') {
+    function refNum(secValue) {
+
+    // get value from selection
+    // var secValue = document.getElementById('sec').value;
 
     var totalCustomer = 0;
     var d = new Date();
@@ -320,11 +349,17 @@ if(isset($_POST['submit'])){
         months = month;
     }
 
-    var output = 'FCN/'+cat+'/FSF/'+(totalCustomers + 1) + '' + months + '' + year; 
-    console.log((totalCustomers + 1)+''+months+''+year);
-    document.getElementById('output').innerHTML = output;
+    var output = 'FCN/'+secValue+'/<?php echo $initialname; ?>/'+(totalCustomers + 1) + '' + months + '' + year; 
+   // console.log((totalCustomers + 1)+''+months+''+year);
+    //document.getElementById('output').innerHTML = output;
+    
+    var refInput = document.getElementById('refNum');
+    refInput.value = output;
+    console.log(output);
+    
 }
+
+
+    // Print function
 </script>
-
-
 </html>
