@@ -270,8 +270,7 @@ if(isset($_POST['submit'])){
                 </table>
                 </div>
             </div>
-            
-            </form>
+               
             <div class="row">
                 <div class="col-md-12">
                     <div class="notes">

@@ -3,6 +3,7 @@
 // ob_start();
 
 include("includes/db.php");
+include("includes/db1.php");
 session_start();
 
 $id = $_SESSION['id'];
@@ -190,18 +191,25 @@ if(isset($_POST['submit'])){
 
             <br>
             <p><strong>Order</strong></p>
+            <div class="col-lg-12">
+            <a href="#" class="btn btn-default" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-plus fa-2x"></i></a>
+            <?php include "add_ordernewcust.php"; ?>
+            <div class="row">
             <div class="row">
                 <div class="col-md-12">
-                    <table class="table1 table-bordered">
+                    <table class="table table-bordered">
                         <thead class="bg-primary">
                             <tr>
                                 <th class="text-center" rowspan="2"><label for="No">No</label></th>
                                 <th class="text-center" rowspan="2"><label for="D">Service/Product<label></th>
+                                <th class="text-center" rowspan="2"><label for="t">Type</label></th>   
                                 <th class="text-center" colspan="2">Location</th>
                                 <th class="text-center" rowspan="2"><label for="S">SLA(%)</label></th>
                                 <th class="text-center" rowspan="2"><label for="C">Capacity (Mbps)</label></th>
                                 <th class="text-center" rowspan="2"><label for="A">Annual Charges(RM/Year)</label></th>
                                 <th class="text-center" rowspan="2"><label for="O">One Time Charges(RM)</label></th>
+                                <th class="text-center" rowspan="2"><label for="Edit">Edit</label></th>
+                                <th class="text-center" rowspan="2"><label for="Delete">Delete</label></th>
                             </tr>
                             <tr>
                                 <th class="text-center"><label for="F">From</label></th>
@@ -209,36 +217,37 @@ if(isset($_POST['submit'])){
                             </tr>
                         </thead>
                         <tbody>
-                            <form action="" method="post">
-                                <tr>
-                                    <td class="text-center">
-                                    <input type="No" class="form-control" id="No" placeholder="" name="No" value="1" readonly></td>
-                                    <td class="text-center">
-                                    <input type="D" class="form-control" id="D" placeholder="" name="D"></td>
-                                    <td class="text-center">
-                                    <input type="F" class="form-control" id="F" placeholder="" name="F"></td>
-                                    <td class="text-center">
-                                    <input type="T" class="form-control" id="T" placeholder="" name="T"></td>
-                                    <td class="text-center">
-                                    <input type="S" class="form-control" id="S" placeholder="" name="S"></td>
-                                    <td class="text-center">
-                                    <input type="C" class="form-control" id="C" placeholder="" name="C"></td>
-                                    <td class="text-center">
-                                    <input type="A" class="form-control" id="A" placeholder="" name="A"></td>
-                                    <td class="text-center">
-                                    <input type="O" class="form-control" id="O" placeholder="" name="O"></td> 
-                                </tr>
-                            </form>
+                            <?php 
+
+                                $sql = $conn1->query("SELECT * FROM newproduct_orders");
+
+                                if ($sql) {
+                                    
+                                    $count = 1;
+                                    while ($row = $sql->fetch_assoc()) {
+                                        
+                                        $id = $row['idnew'];
+                                        echo "<tr>";
+                                        echo "<td>$count</td>";
+                                        echo "<td>".$row['type_new']."</td>";
+                                        echo "<td>".$row['newservices']."</td>";
+                                        echo "<td>".$row['new_from']."</td>";
+                                        echo "<td>".$row['new_to']."</td>";
+                                        echo "<td>".$row['newsla']."</td>";
+                                        echo "<td>".$row['newcapacity']."</td>";
+                                        echo "<td>".$row['new_annualcharges']."</td>";
+                                        echo "<td>".$row['new_otc']."</td>";
+                                        echo "<td><a href=\"editcustorder.php?id=$id\"><i class=\"fa fa-edit\"></i></a></td>";
+                                        echo "<td><a href=\"delcustorder.php?id=$id\" onclick=\"return confirm('Are you sure you want to delete this order?')\">X</a></td>";
+                                        echo "</tr>";
+                                        $count++;
+                                    }
+                                }
+
+                                ?>
+                                
                         </tbody>
                     </table>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="modal-footer">
-                        <button type="submit" name="back" class="btn btn-primary" id="Back" onClick="javascript:window.location.href='cust_form.php'; return false">Back</button>
-                        <input type="submit" name="submit" class="btn btn-primary" value="Submit">
-                    </div>
                 </div>
             </div>
             </form>
@@ -286,80 +295,57 @@ if(isset($_POST['submit'])){
 
 <!-- Custom Theme JavaScript -->
 <script src="../dist/js/sb-admin-2.js"></script>
+<script>
+    $(document).ready(function(){
 
+        $('#submit').on('click', function(e){
+            e.preventDefault();
+            
+            var list = $('#list').val();
+            var string = "<li>"+list+"</li>";
+            $('ol').append(string);
+        });
 
+        $('#remove').on('click', function(e){
+            $("list")
+        })
+    });
+
+</script>
 <script>
     $(document).ready(function() {
         $('#summernote').summernote();
     });
 
-// Print area
-    // document.getElementById('print_btn').addEventListener('click', function () {
-    //     window.print();
-    //     PrintElem();
-    //     $('.printArea').printThis();
-    // });
-    // var year = document.getElementById('year');
-    data = new Date();
-    //data.format("YYYY-m-D");
+    $('#type').on('change', function(){
+        var type_newid = $(this).val();
 
-    $('#year').text(new Date().getFullYear());
-    year.textContent = data.toLocaleDateString("en-GB");
+        $.ajax({
+            url: "process_newtype.php",
+            method: "POST",
+            data: {type_newid: type_newid},
+            dataType: "text",
+            success: function(data){
+                $('#D').html(data);
+            }
+        });
 
-    // document.getElementById('category').addEventListener('change', function() {
-    //  var cat = this.value;
-    //  refNum(cat);
-    // });
-
-    // button click event
-    document.getElementById('userForm').addEventListener('submit', function(){
-        // e.preventDefault();
-
-        // selection value
-        var section = document.getElementById('sec').value;
-        // console.log(section);
-        refNum(section);
 
     });
 
+
+   
+
     
 
 
 
     
-    // refNum
-    function refNum(secValue) {
-
-    // get value from selection
-    // var secValue = document.getElementById('sec').value;
-
-    var totalCustomer = 0;
-    var d = new Date();
-    var year = d.getFullYear();
-    var month = d.getMonth()+1;
-
-    if (totalCustomer < 100) {
-        totalCustomers = '0'+totalCustomer;
-    } else {
-        totalCustomers = totalCustomer;
-    }
-    if (month < 10) {
-        months = '0'+month;
-    } else {
-        months = month;
-    }
-
-    var output = 'FCN/'+secValue+'/<?php echo $initialname; ?>/'+(totalCustomers + 1) + '' + months + '' + year; 
-   // console.log((totalCustomers + 1)+''+months+''+year);
-    //document.getElementById('output').innerHTML = output;
-    
-    var refInput = document.getElementById('refNum');
-    refInput.value = output;
-    console.log(output);
-    
-}
+   
 
 
     // Print function
 </script>
+
+
 </html>

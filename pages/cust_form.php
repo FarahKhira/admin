@@ -5,6 +5,7 @@
 include("includes/db.php");
 session_start();
 $userID = $_SESSION['staffid'];
+$initialname = $_SESSION['initialname'];
 
 if(isset($_POST['send'])){
     echo $refNum = $_POST['refNum'];
@@ -180,6 +181,7 @@ if(isset($_POST['send'])){
 <script src="js/printThis.js"></script>
 
 <script>
+	
 
 // Print area
     // document.getElementById('print_btn').addEventListener('click', function () {
@@ -188,11 +190,11 @@ if(isset($_POST['send'])){
     //     $('.printArea').printThis();
     // });
     // var year = document.getElementById('year');
-    data = new Date();
+    // data = new Date();
     //data.format("YYYY-m-D");
 
-    $('#year').text(new Date().getFullYear());
-    year.textContent = data.toLocaleDateString("en-GB");
+    // $('#year').text(new Date().getFullYear());
+    // year.textContent = data.toLocaleDateString("en-GB");
 
     // document.getElementById('category').addEventListener('change', function() {
 	// 	var cat = this.value;
@@ -237,7 +239,7 @@ if(isset($_POST['send'])){
         months = month;
     }
 
-    var output = 'FCN/'+secValue+'/<?php echo $userID; ?>/'+(totalCustomers + 1) + '' + months + '' + year; 
+    var output = 'FCN/'+secValue+'/<?php echo $initialname; ?>/'+(totalCustomers + 1) + '' + months + '' + year; 
    // console.log((totalCustomers + 1)+''+months+''+year);
 	//document.getElementById('output').innerHTML = output;
 	
