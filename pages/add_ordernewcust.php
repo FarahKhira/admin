@@ -70,16 +70,16 @@
 
 if (isset($_POST['save1'])) {
   
-  $type = $_POST['t'];
-  $DOS = $_POST['D'];
-  $from = $_POST['F'];
-  $to = $_POST['T'];
-  $SLA = $_POST['S'];
-  $CAP = $_POST['C'];
-  $AC = $_POST['A'];
-  $OTC = $_POST['O'];
+  $t = $_POST['t'];
+  $D = $_POST['D'];
+  $F = $_POST['F'];
+  $T= $_POST['T'];
+  $S = $_POST['S'];
+  $C = $_POST['C'];
+  $A = $_POST['A'];
+  $O = $_POST['O'];
 
-  $sql1 = $conn1->query("SELECT * FROM newproduct WHERE idnewproducts = $t");
+  $sql1 = $conn1->query("SELECT * FROM newproduct WHERE idnewproducts = $type");
   $fetch = $sql1->fetch_assoc();
 
   $type_name1 = $fetch['newproducts'];

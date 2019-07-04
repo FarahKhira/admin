@@ -83,10 +83,7 @@ $mobile = $_SESSION['mobile'];
                         <a href="indexstaff.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="listcust.php"><i class="fa fa-tags"></i> Customers </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="cust_form.php"><i class="fa fa-users fa-fw"></i> New Customer </a>
+                        <a href="cust_form.php"><i class="fa fa-tags"></i> Customers </a>
                     </li>
                     <li class="list-group-item">
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Settings<span class="fa arrow"></span></a>

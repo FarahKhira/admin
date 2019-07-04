@@ -1,3 +1,40 @@
+
+<?php 
+session_start();
+include "includes/db1.php";
+if (isset($_GET['id'])) {
+    $customer_id = $_GET['id'];
+
+    $sql = $conn1->query("SELECT * FROM addcustdb WHERE ccompanyid = $customer_id");
+    if ($sql) {
+        $row = $sql->fetch_assoc();
+
+        $db_company = $row['ccompany'];
+        $db_contact_person = $row['ccontactperson'];
+        $db_mobile = $row['cmobile'];
+        $db_email = $row['cemail'];
+    }
+}
+
+if (isset($_POST['submit'])) {
+    $company = $_POST['company'];
+    $contact_person = $_POST['contact'];
+    $mobile = $_POST['phone'];
+    $email =  $_POST['email'];
+
+    $query = $conn1->query("UPDATE addcustdb SET ccompany = '$company', ccontactperson = '$contact_person', cmobile = '$mobile', cemail =  '$email' WHERE ccompanyid=$customer_id");
+
+    if ($query) {
+        $_SESSION['message'] = 'customer update';
+        header('Location: cust_form.php');
+    } else {
+        $_SESSION['message'] = $conn1->error;
+        header('Location: cust_form.php');
+    }
+}
+
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,11 +65,10 @@
     <!-- Navigation -->
     <header class="align-items-start app-header flex-column flex-md-row navbar navbar-expand-md navbar-light">
         <div class="align-items-baseline d-flex flex-row navbar-brand p-lg-3 pl-3 pr-3 pt-3">
-            <a class="" href="index.php"><img src="../vendor/datatables/images/download.png" width="200" height="60"></a>
+            <a class="" href="indexstaff.php"><img src="../vendor/datatables/images/download.png" width="200" height="60"></a>
             <button class="collapsed ml-auto navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#side-menu-wrapper" aria-controls="side-menu" aria-expanded="false"
-                    aria-label="Toggle navigation" style="
-">
+                    aria-label="Toggle navigation" style="">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
@@ -41,102 +77,13 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-envelope fa-fw"></i>
-                </a>
-                <div class="dropdown-menu dropdown-messages dropdown-menu-right">
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <strong>John Smith</strong>
-                            <span class="float-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                        </div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <strong>John Smith</strong>
-                            <span class="float-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                        </div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <strong>John Smith</strong>
-                            <span class="float-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                        </div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item see-more text-center" href="#">
-                        <strong>Read All Messages</strong>
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
-                   aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-bell fa-fw"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-alerts">
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-comment fa-fw"></i> New Comment
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                            <span class="float-right text-muted small">12 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-envelope fa-fw"></i> Message Sent
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-tasks fa-fw"></i> New Task
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <div>
-                            <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                            <span class="float-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item see-more text-center" href="#">
-                        <strong>See All Alerts</strong>
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
-                   aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-user fa-fw"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-user">
-                    <a class="dropdown-item" href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <a class="dropdown-item" href="profile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     <a class="dropdown-item" href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <a class="dropdown-item" href="login.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                 </div>
             </li>
         </ul>
@@ -157,43 +104,10 @@
                         <!-- /input-group -->
                     </li>
                     <li class="list-group-item">
-                        <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="indexstaff.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="#"><i class="fa fa-tags"></i> Products<span class="fa arrow"></span></a>
-                        <ul class="nav-second-level list-group nested">
-                            <li class="list-group-item">
-                                <a href="insert_product.php"> Insert Product </a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="view_product.php"> View Products </a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#"><i class="fa fa-users fa-fw"></i> Customers<span class="fa arrow"></span></a>
-                        <ul class="nav-second-level list-group nested">
-                            <li class="list-group-item">
-                                <a href="view_customer.php">View Customer </a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="edit_customer.php">Edit Customers </a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second -->
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#"><i class="fa fa-edit fa-fw"></i> Staffs<span class="fa arrow"></span></a>
-                        <ul class="nav-second-level list-group nested">
-                            <li class="list-group-item">
-                                <a href="reg_staff.php">Register Staff</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="view_staff.php">View Staff</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
+                        <a href="cust_form.php"><i class="fa fa-tags"></i> Customers </a>
                     </li>
                     <li class="list-group-item">
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Settings<span class="fa arrow"></span></a>
@@ -211,6 +125,43 @@
             </div>
             <!-- /.sidebar-collapse -->
         </div>
+
+        <div id="page-wrapper" class="p-4">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-xl-12">
+                        <h2 class="page-header">Edit Customer</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <form action="" method="post">
+                            <div class="form-group">
+                                <label>Company</label>
+                                <input type="text" name="company" class="form-control" value="<?php echo $db_company ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>Contact Person</label>
+                                <input type="text" name="contact" class="form-control" value="<?php echo $db_contact_person ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>Mobile</label>
+                                <input type="text" name="phone" class="form-control" value="<?php echo $db_mobile ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="text" name="email" class="form-control" value="<?php echo $db_email ?>">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-primary" value="Send">
+                                <button type="back" name="back" class="btn btn-primary" onClick="javascript:window.location.href='cust_form.php'; return false">Back</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </div>
 

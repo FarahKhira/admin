@@ -244,8 +244,7 @@ if(isset($_POST['submit'])){
                                     }
                                 }
 
-                                ?>
-                                
+                                ?> 
                         </tbody>
                     </table>
                 </div>

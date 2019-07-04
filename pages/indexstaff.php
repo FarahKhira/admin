@@ -5,6 +5,12 @@
 include("../pages/includes/db.php");
 session_start();
 
+if (isset($_SESSION['id'])) {
+  
+} else {
+  header("Location: login.php");
+}
+
 $id = $_SESSION['id'];
 $username = $_SESSION['username'];
 $email = $_SESSION['email'];
@@ -163,10 +169,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                         <a href="indexstaff.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="listcust.php"><i class="fa fa-tags"></i> Customers </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="cust_form.php"><i class="fa fa-users fa-fw"></i> New Customers </a>
+                        <a href="cust_form.php"><i class="fa fa-tags"></i> Customers </a>
                     </li>
                     <li class="list-group-item">
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Settings<span class="fa arrow"></span></a>

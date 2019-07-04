@@ -29,6 +29,19 @@ if(isset($_POST['submit'])){
     }
 }
 
+if (isset($_GET['id'])) {
+    $customer_id = $_GET['id'];
+
+    $sql = $conn1->query("SELECT * FROM addcustdb WHERE ccompanyid = $customer_id");
+    $fetch = $sql->fetch_assoc();
+
+    $db_company = $fetch['ccompany'];
+    $db_contact_person = $fetch['ccontactperson'];
+    $db_mobile = $fetch['cmobile'];
+    $db_email = $fetch['cemail'];
+    $db_serial_number = $fetch['serial_idnum'];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -124,10 +137,7 @@ if(isset($_POST['submit'])){
                         <a href="indexstaff.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="listcust.php"><i class="fa fa-tags"></i> Customers </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="cust_form.php"><i class="fa fa-users fa-fw"></i> New Customer </a>
+                        <a href="cust_form.php"><i class="fa fa-tags"></i> Customers </a>
                     </li>
                     <li class="list-group-item">
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Settings<span class="fa arrow"></span></a>
@@ -159,7 +169,7 @@ if(isset($_POST['submit'])){
                             Tel: <a href="#">+603-2246-8400</a><br>
                             Fax: <a href="#">+603-2246-8500</a><br>
                             <a href="#">www.fibrecomm.net.my</a><br>
-                            Serial No.: <a href="#"><?php echo $_SESSION['ref_num']; ?></a>
+                            Serial No.: <a href="#"><?php echo $db_serial_number; ?></a>
                         </p>
                         <p><b>Quotation Date: </b><strong id="year">
                         <a href="#">
@@ -178,19 +188,19 @@ if(isset($_POST['submit'])){
                     <table>
                         <tr>
                             <th width="150">Company</th>
-                            <td><?php echo $_SESSION['company']; ?></td>
+                            <td><?php echo $db_company; ?></td>
                         </tr>
                         <tr>
                             <th>Contact Person</th>
-                            <td><?php echo $_SESSION['contact_person']; ?></td>
+                            <td><?php echo $db_contact_person; ?></td>
                         </tr>
                         <tr>
                             <th>Mobile</th>
-                            <td><?php echo $_SESSION['mobile_person']; ?></td>
+                            <td><?php echo $db_mobile; ?></td>
                         </tr>
                         <tr>
                             <th>Email</th>
-                            <td><?php echo $_SESSION['email_person']; ?></td>
+                            <td><?php echo $db_email; ?></td>
                         </tr>
 
                     </table><br>

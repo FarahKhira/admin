@@ -3,6 +3,7 @@
 //ob_start();
 
 include("includes/db.php");
+include "includes/db1.php";
 session_start();
 $userID = $_SESSION['staffid'];
 $initialname = $_SESSION['initialname'];
@@ -97,10 +98,7 @@ if(isset($_POST['send'])){
                         <a href="indexstaff.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="listcust.php"><i class="fa fa-tags"></i> Customers </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="cust_form.php"><i class="fa fa-users fa-fw"></i> New Customer </a>
+                        <a href="cust_form.php"><i class="fa fa-tags"></i> Customers </a>
                     </li>
                     <li class="list-group-item">
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Settings<span class="fa arrow"></span></a>
@@ -121,7 +119,69 @@ if(isset($_POST['send'])){
 
          <div id="page-wrapper" class="p-4">
             <div class="container-fluid">
-                <div class="row justify-content-center">
+                <div class="row">
+                        <div class="col-lg-12">
+                            <?php 
+                            if (isset($_SESSION['message'])) {
+                                echo $_SESSION['message'];
+                                unset($_SESSION['message']);
+                            }
+                             ?>
+                            <a href="#" class="btn btn-default" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-plus fa-2x"></i></a>
+                            <?php include "add_customer_modal.php" ?>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Serial Number</th>
+                                        <th>Company</th>
+                                        <th>contact Person</th>
+                                        <th>Mobile</th>
+                                        <th>Email</th>
+                                        <th>View</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php 
+
+                                    $sql = $conn1->query("SELECT * FROM addcustdb");
+                                    $count = 1;
+                                    if ($sql) {
+                                        while ($row = $sql->fetch_assoc()) {
+                                            $id = $row['ccompanyid'];
+                                            $company = $row['ccompany'];
+                                            $contact = $row['ccontactperson'];
+                                            $mobile = $row['cmobile'];
+                                            $email = $row['cemail'];
+                                            $serial_idnum = $row['serial_idnum'];
+
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $count ?></td>
+                                                <td><?php echo $serial_idnum ?></td>
+                                                <td><?php echo $company?></td>
+                                                <td><?php echo $contact ?></td>
+                                                <td><?php echo $mobile ?></td>
+                                                <td><?php echo $email ?></td>
+                                                <td><a href="custdisplay.php?id=<?php echo $id ?>"><i class="fa fa-eye"></i></a></td>
+                                                <td><a href="edit_customer.php?id=<?php echo $id ?>"><i class="fa fa-edit"></i></a></td>
+                                                <td><a href="#"><i class="fa fa-trash"></i></a></td>
+                                            </tr>
+                                            <?php
+                                            $count++;
+                                        }
+                                    }
+
+                                     ?>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div> 
+               <!--  <div class="row justify-content-center">
+
                     <div class="col-xl-12">
                         <h2 class="page-header">Client's detail</h2>
                     </div>
@@ -159,7 +219,7 @@ if(isset($_POST['send'])){
                             </div>
                         </form>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -202,7 +262,7 @@ if(isset($_POST['send'])){
 	// });
 
 	// button click event
-	document.getElementById('userForm').addEventListener('send', function(){
+	document.getElementById('userForm').addEventListener('submit', function(){
 		// e.preventDefault();
 
 		// selection value
