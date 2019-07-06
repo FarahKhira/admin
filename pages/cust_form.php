@@ -167,7 +167,7 @@ if(isset($_POST['send'])){
                                                 <td><?php echo $email ?></td>
                                                 <td><a href="custdisplay.php?id=<?php echo $id ?>"><i class="fa fa-eye"></i></a></td>
                                                 <td><a href="edit_customer.php?id=<?php echo $id ?>"><i class="fa fa-edit"></i></a></td>
-                                                <td><a href="#"><i class="fa fa-trash"></i></a></td>
+                                                <td><a href="delete_cust.php?id=<?php echo $id ?>" onclick="return confirm('are you sure you want to delete ?')"><i class="fa fa-trash"></i></a></td>
                                             </tr>
                                             <?php
                                             $count++;

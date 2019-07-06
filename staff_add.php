@@ -69,17 +69,6 @@ if (isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
                                 echo "</tr>";
                             }
                              ?>
-                            
-                               
-                                
-                               
-                                
-                                
-                                
-                                
-                               
-                                
-            				
             			</tbody>
             		</table>
             	</div>	

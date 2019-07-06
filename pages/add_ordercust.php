@@ -84,7 +84,7 @@ if (isset($_POST['save'])) {
 
   $type_name = $fetch['products'];
 
-  $sql = $conn1->query("INSERT INTO product_orders(type, services_products, from_to, to_from, sla, capacity, annual_charges, otcharges) VALUES('$type_name', '$DOS', '$from', '$to', '$SLA', '$CAP', '$AC', '$OTC')");
+  $sql = $conn1->query("INSERT INTO product_orders(type, services_products, from_to, to_from, sla, capacity, annual_charges, otcharges, customer_id) VALUES('$type_name', '$DOS', '$from', '$to', '$SLA', '$CAP', '$AC', '$OTC', '$customer_id')");
 
   if ($sql) {
     echo "<script>alert('order inserted!')</script>";

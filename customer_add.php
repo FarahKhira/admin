@@ -1,5 +1,6 @@
 <?php 
 include "includes/db.php";
+include "pages/includes/db1.php";
 
 
 if (isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
@@ -31,17 +32,16 @@ if (isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
             <div class="row">
 
             	<div class="col-lg-12">
+                    
             		<table class="table table-striped">
             			<thead>
             				<tr>
             					<th>Id</th>
             					<th>Company Name</th>
-            					<th>Address</th>
             					<th>Customer contact</th>
             					<th>Phone No. </th>
-            					<th>Fax No.</th>
             					<th>Email</th>
-                                <th>Section</th>
+                                <th>Serial No.</th>
             					<th>Date Registered</th>
                                 <th>Account Manager</th>
             					<th>Update</th>
@@ -49,20 +49,38 @@ if (isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
             				</tr>
             			</thead>
             			<tbody>
-            				<tr>
-                                <td>1</td>
-                                <td>Pfizer Malaysia Sdn.Bhd (HQ-KL)</td>
-                                <td>Level 42, Menara Tm, Off Jalan Off Pantai Baharu, 59200, Kuala Lumpur.</td>
-                                <td>)14-3445672</td>
-                                <td>603- 4425657</td>
-                                <td>29/6/2019</td>
-                                <td>pfizer@net.my</td>
-                                <td>DM</td>
-                                <td>29/6/2019</td>
-                                <td>Farahsyasya</td>
-                                <td><a href="#"><i class="fa fa-edit"></i></a></td>
-                                <td><a href="#">X</a></td>
-            				</tr>
+            				<?php 
+
+                            // select all data from database
+                            $query = $conn->query("SELECT * FROM addcustdb ORDER BY ccompanyid DESC");
+                            $count = 1;
+
+                            while ($row = $query->fetch_assoc()) {
+
+                                $id = $row['ccompanyid'];
+                                $user_id = $row['user_id'];
+
+                                $sql = $conn1->query("SELECT * FROM users WHERE id=$user_id");
+                                $fetch = $sql->fetch_assoc();
+
+                                $username = $fetch['username'];
+                                
+                                echo "<tr>";
+                                echo "<td>$count</td>";
+                                echo "<td>".$row['ccompany']."</td>";
+                                echo "<td>".$row['ccontactperson']."</td>";
+                                echo "<td>".$row['cmobile']."</td>";
+                                echo "<td>".$row['cemail']."</td>";
+                                echo "<td>".$row['serial_idnum']."</td>";
+                                echo "<td></td>";
+                                echo "<td>$username</td>";
+                                echo "<td><a href=\"updatecustadmin.php?id=$id\"><i class=\"fa fa-edit\"></i></a></td>";
+                                echo "<td><a href=\"#\">X</a></td>";
+                                echo "</tr>";
+                                $count++;
+                            }
+                            
+                             ?>
             			</tbody>
             		</table>
             	</div>	

@@ -67,6 +67,7 @@ if (isset($_GET['id'])) {
 
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
     <style type="text/css">
         form{
             margin: 20px 0;
@@ -227,6 +228,7 @@ if (isset($_GET['id'])) {
             <?php include "add_ordercust.php"; ?>
             <div class="row">
                 <div class="col-md-12">
+
                 <table class="table table-bordered">
                     <thead class="bg-primary">
                         <tr>
@@ -249,7 +251,7 @@ if (isset($_GET['id'])) {
                     <tbody>
                         <?php 
 
-                        $sql = $conn1->query("SELECT * FROM product_orders");
+                        $sql = $conn1->query("SELECT * FROM product_orders WHERE customer_id = $customer_id");
 
                         if ($sql) {
                             
@@ -268,7 +270,7 @@ if (isset($_GET['id'])) {
                                 echo "<td>".$row['annual_charges']."</td>";
                                 echo "<td>".$row['otcharges']."</td>";
                                 echo "<td><a href=\"editcustorder.php?id=$id\"><i class=\"fa fa-edit\"></i></a></td>";
-                                echo "<td><a href=\"delcustorder.php?id=$id\" onclick=\"return confirm('Are you sure you want to delete this order?')\">X</a></td>";
+                                echo "<td><a href=\"delcustorder.php?id=$id&customerid=$customer_id\" onclick=\"return confirm('Are you sure you want to delete this order?')\">X</a></td>";
                                 echo "</tr>";
                                 $count++;
                             }
@@ -285,29 +287,12 @@ if (isset($_GET['id'])) {
                 <div class="col-md-12">
                     <div class="notes">
                     <br>
-                    <br>
-                    <br>
                         <p><strong>Notes</strong></p>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="col-md-12">
-                                <form action="">
-                                    <input type="text" id="list" class="form-control" placeholder="add notes">
-                                    <input type="submit" id="submit" value="Add" class="btn btn-primary">
-                                </form>
-                            </div>
-                        </div>
+                    <div class="col-lg-12">
+                    <a href="#" class="btn btn-default" data-toggle="modal" data-target="#exampleModalCenter2"><i class="fa fa-plus fa-2x"></i></a>
+                    <?php include "notes_modal.php"; ?>
                     </div>
-                </div>
-                    <ol>
-                        <li>The price quoted is valid for one (1) month from the date of this quotation.</li>
-                        <li>The price is not inclusive of any Government Tax and Cross connect charges.</li>
-                        <li>Payment shall be made within thirty (30) days upon issuance of invoice.</li>
-                        <li>Early termination will incur penalty of 100% of the remaining contract value.</li>
-                        <li>Fibrecomm reserves the right to adjust the price due to unforeseen circumstances at any
-                        time.</li>
-                    </ol>
                 </div>
             </div>
             <div class="row">
@@ -321,45 +306,48 @@ if (isset($_GET['id'])) {
 
 
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> 
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>  -->
+<script src="../vendor/popper/popper.min.js"></script>
 
 <!-- jQuery -->
 <script src="../vendor/jquery/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="../vendor/popper/popper.min.js"></script>
+
 <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+x
 
 <!-- Metis Menu Plugin JavaScript -->
 <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
 
 <!-- Custom Theme JavaScript -->
 <script src="../dist/js/sb-admin-2.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
-<script>
-    $(document).ready(function(){
-
-        $('#submit').on('click', function(e){
-            e.preventDefault();
-            
-            var list = $('#list').val();
-            var string = "<li>"+list+"</li>";
-            $('ol').append(string);
-        });
-
-        $('#remove').on('click', function(e){
-            $("list")
-        })
-    });
-
-</script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
 <script>
     $(document).ready(function() {
         $('#summernote').summernote();
     });
+    // $(document).ready(function(){
+
+    //     $('#submit').on('click', function(e){
+    //         e.preventDefault();
+            
+    //         var list = $('#list').val();
+    //         var string = "<li>"+list+"</li>";
+    //         $('ol').append(string);
+    //     });
+
+    //     $('#remove').on('click', function(e){
+    //         $("list")
+    //     })
+    // });
+
+</script>
+<script>
+    
 
     $('#type').on('change', function(){
         var type_id = $(this).val();

@@ -8,31 +8,39 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="" method="post">
-          <div class="form-group">
-            <label>Id</label>
-            <input type="text" name="staffid" class="form-control">
-          </div>
+        <form action="add_product.php" method="post">
           <div class="form-group">
             <label>Product</label>
-            <input type="text" name="division" class="form-control">
+            <input type="text" name="product_item" class="form-control">
           </div>
           <div class="form-group">
             <label>Type</label>
-            <input type="text" name="division" class="form-control">
+            
+             <select name="product_type" class="form-control">
+            <?php 
+
+            $sql = $conn1->query("SELECT * FROM product");
+            while ($row = $sql->fetch_assoc()) {
+              echo "<option value=".$row['idproduct'].">".$row['products']."</option>";
+            }
+
+             ?>
+               
+             </select>
+          <!--   <input type="text" name="division" class="form-control"> -->
           </div>
           <div class="form-group">
             <label>Date Created</label>
-            <input type="text" name="mobile" class="form-control">
+            <input type="text" name="date_itemcreated" class="form-control">
           </div>
           <div class="form-group">
             <label>Date Modified</label>
-            <input type="password" name="password" class="form-control">
+            <input type="text" name="date_itemmodified" class="form-control">
           </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="submit" name="submit" class="btn btn-primary">Save changes</button>
       </div>
       </form>
     </div>

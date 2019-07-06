@@ -15,16 +15,3 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="js/sb-admin-2.js"></script>
-
-<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-<script>
-
-    function openForm() {
-    document.getElementById("myForm").style.display = "block";
-    }
-
-    function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-    }
-
-</script>
