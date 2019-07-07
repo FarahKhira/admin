@@ -3,13 +3,27 @@
 // ob_start();
 
 include("includes/db.php");
-include("pages/includes/db1.php");
+include("includes/db1.php");
 session_start();
 
 $id = $_SESSION['id'];
 $username = $_SESSION['username'];
 $email = $_SESSION['email'];
 $mobile = $_SESSION['mobile'];
+
+if (isset($_GET['id'])) {
+    $customer_id = $_GET['id'];
+
+    $sql = $conn1->query("SELECT * FROM addcustdb WHERE ccompanyid = $customer_id");
+    $fetch = $sql->fetch_assoc();
+
+    $db_company = $fetch['ccompany'];
+    $db_contact_person = $fetch['ccontactperson'];
+    $db_mobile = $fetch['cmobile'];
+    $db_email = $fetch['cemail'];
+    $db_serial_number = $fetch['serial_idnum'];
+}
+
 
 ?>
 
@@ -76,7 +90,7 @@ $mobile = $_SESSION['mobile'];
                     Tel: <a href="#">+603-2246-8400</a><br>
                     Fax: <a href="#">+603-2246-8500</a><br>
                     <a href="#">www.fibrecomm.net.my</a><br>
-                    Serial No.: <a href="#"><?php echo $_SESSION['ref_num']; ?></a>
+                    Serial No.: <a href="#"><?php echo $db_serial_number; ?></a>
                 </p>
 
                 </p>
@@ -98,19 +112,19 @@ $mobile = $_SESSION['mobile'];
                 <table>
                     <tr>
                         <th width="150">Company</th>
-                        <td><?php echo $_SESSION['company']; ?></td>
+                        <td><?php echo $db_company; ?></td>
                     </tr>
                     <tr>
                         <th>Contact Person</th>
-                        <td><?php echo $_SESSION['contact_person']?></td>
+                        <td><?php echo $db_contact_person?></td>
                     </tr>
                     <tr>
                         <th>Mobile</th>
-                        <td><?php echo $_SESSION['mobile_person']?></td>
+                        <td><?php echo $db_mobile?></td>
                     </tr>
                     <tr>
                         <th>Email</th>
-                        <td><?php echo $_SESSION['email_person']?></td>
+                        <td><?php echo $db_email?></td>
                     </tr>
 
                 </table><br>
@@ -136,11 +150,12 @@ $mobile = $_SESSION['mobile'];
         <p><strong>Order</strong></p>
         <div class="row">
             <div class="col-md-12">
-                <table class="table1 table-bordered">
+                <table class="table table-bordered">
                     <thead class="bg-primary">
                         <tr>
                             <th class="text-center" rowspan="2"><label for="No">No</label></th>
                             <th class="text-center" rowspan="2"><label for="DOS">Service/Product<label></th>
+                            <th class="text-center" rowspan="2"><label for="type">Type</label></th>
                             <th class="text-center" colspan="2">Location</th>
                             <th class="text-center" rowspan="2"><label for="SLA">SLA(%)</label></th>
                             <th class="text-center" rowspan="2"><label for="CAP">Capacity (Mbps)</label></th>
@@ -154,16 +169,34 @@ $mobile = $_SESSION['mobile'];
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="text-center">1</td>
-                            <td class="text-center"><?php echo $_SESSION['DOS']?></td>
-                            <td class="text-center"><?php echo $_SESSION['from']?></td>
-                            <td class="text-center"><?php echo $_SESSION['to']?></td>
-                            <td class="text-center"><?php echo $_SESSION['SLA']?></td>
-                            <td class="text-center"><?php echo $_SESSION['CAP']?></td>
-                            <td class="text-center"><?php echo $_SESSION['AC']?></td>
-                            <td class="text-center"><?php echo $_SESSION['OTC']?></td>
-                        </tr>
+                        <?php 
+
+                        $sql = $conn1->query("SELECT * FROM product_orders WHERE customer_id = $customer_id");
+
+                        if ($sql) {
+                            
+                            $count = 1;
+                            while ($row = $sql->fetch_assoc()) {
+                                
+                                $id = $row['id'];
+                                echo "<tr>";
+                                echo "<td>$count</td>";
+                                echo "<td>".$row['type']."</td>";
+                                echo "<td>".$row['services_products']."</td>";
+                                echo "<td>".$row['from_to']."</td>";
+                                echo "<td>".$row['to_from']."</td>";
+                                echo "<td>".$row['sla']."</td>";
+                                echo "<td>".$row['capacity']."</td>";
+                                echo "<td>".$row['annual_charges']."</td>";
+                                echo "<td>".$row['otcharges']."</td>";
+                                
+                                echo "</tr>";
+                                $count++;
+                            }
+                        }
+
+                         ?>
+                        
                     </tbody>
                 </table>
             </div>
@@ -172,26 +205,22 @@ $mobile = $_SESSION['mobile'];
             <div class="col-md-12">
                 <div class="notes"><br>
                     <p><strong>Notes</strong></p>
-                    <ol>
-                        <li>The price quoted is valid for one (1) month from the date of this quotation.</li>
-                        <li>The price is not inclusive of any Government Tax and Cross connect charges.</li>
-                        <li>Payment shall be made within thirty (30) days upon issuance of invoice.</li>
-                        <li>Payment shall be made quartely in advance.</li>
-                        <li>Early termination will incur penalty of 100% of the remaining contract value.</li>
-                        <li>Other terms and conditions are as per exciting Fibrecomm's Master Service Agreement and
-                            new Service Order Form.</li>
-                        <li>The guaranteed SLA is 99.0%.</li>
-                        <li>Ready For services (RFS) is 4 to 8 weeks upon receipt of confirmation from customer.
-                        </li>
-                        <li>Fibrecomm reserves the right to adjust the price due to unforeseen circumstances at any
-                            time.</li>
-                        <li>Fibrecomm to provide 10Gigabit Ethernet Interface.</li>
-                    </ol>
+                    <?php 
+
+                    $sql =  $conn1->query("SELECT * FROM notes WHERE customer_id = $customer_id");
+                    $row = $sql->fetch_assoc();
+
+                    $notes = $row['notes_user'];
+
+                    echo $notes;
+
+                     ?>
+                    
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
+    <!-- <div class="row">
         <div class="modal-footer">
             <div id="container">
                 <div class="col-md-12">
@@ -203,7 +232,7 @@ $mobile = $_SESSION['mobile'];
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="printArea">
         <div class="row">
             <div class="col-md-12">
@@ -215,7 +244,7 @@ $mobile = $_SESSION['mobile'];
 </body>
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/printThis.js"></script>
+<script src="../js/printThis.js"></script>
 
 <script>
 
@@ -225,6 +254,8 @@ document.getElementById('print_btn').addEventListener('click', function () {
     PrintElem();
     $('.printArea').printThis();
 });
+
+
 var year = document.getElementById('year');
 data = new Date();
 data.format("YYYY-m-D");
@@ -233,36 +264,9 @@ $('#year').text(new Date().getFullYear());
 year.textContent = data.toLocaleDateString("en-GB");
 
 
-// refNum
-function refNum(cat = 'DM') {
 
-var totalCustomer = 0;
-var d = new Date();
-var year = d.getFullYear();
-var month = d.getMonth()+1;
-
-if (totalCustomer < 100) {
-    totalCustomers = '0'+totalCustomer;
-} else {
-    totalCustomers = totalCustomer;
-}
-if (month < 10) {
-    months = '0'+month;
-} else {
-    months = month;
-}
-
-var output = 'FCN/'+cat+'/FSF/'+(totalCustomers + 1) + '' + months + '' + year; 
-console.log((totalCustomers + 1)+''+months+''+year);
-document.getElementById('output').innerHTML = output;
- 
-
-
-}
 
 
 // Print function
 </script>
-<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/pdfmake.min.js"></script>
-<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/vfs_fonts.js"></script>
 </html>

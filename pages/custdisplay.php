@@ -11,23 +11,23 @@ $username = $_SESSION['username'];
 $email = $_SESSION['email'];
 $mobile = $_SESSION['mobile'];
 
-if(isset($_POST['submit'])){
-    $_SESSION['DOS'] = $services = $_POST['DOS'];
-    $_SESSION['from'] = $Location1 = $_POST['from'];
-    $_SESSION['to'] = $Location2 = $_POST['to'];
-    $_SESSION['SLA'] = $sla= $_POST['SLA'];
-    $_SESSION['CAP'] = $capacity = $_POST['CAP'];
-    $_SESSION['AC'] = $annualcharge = $_POST['AC'];
-    $_SESSION['OTC'] = $total = $_POST['OTC'];
-    //echo $services . $location1 . $Location2 . $sla . $capacity . $annualcharge . $total;
-    $query = mysqli_query($connection, "INSERT INTO quotation(services, Location1, Location2, sla, capacity, annualcharge, total) VALUES ('$services', '$Location1', '$Location2', '$sla', '$capacity', '$annualcharge', '$total')");
-    if(!$query){
-        die('query failed'.mysqli_error($connection));
-        exit();
-    } else{
-        header('Location: output.php');
-    }
-}
+// if(isset($_POST['submit'])){
+//     $_SESSION['DOS'] = $services = $_POST['DOS'];
+//     $_SESSION['from'] = $Location1 = $_POST['from'];
+//     $_SESSION['to'] = $Location2 = $_POST['to'];
+//     $_SESSION['SLA'] = $sla= $_POST['SLA'];
+//     $_SESSION['CAP'] = $capacity = $_POST['CAP'];
+//     $_SESSION['AC'] = $annualcharge = $_POST['AC'];
+//     $_SESSION['OTC'] = $total = $_POST['OTC'];
+//     //echo $services . $location1 . $Location2 . $sla . $capacity . $annualcharge . $total;
+//     $query = mysqli_query($connection, "INSERT INTO quotation(services, Location1, Location2, sla, capacity, annualcharge, total) VALUES ('$services', '$Location1', '$Location2', '$sla', '$capacity', '$annualcharge', '$total')");
+//     if(!$query){
+//         die('query failed'.mysqli_error($connection));
+//         exit();
+//     } else{
+//         header('Location: output.php');
+//     }
+// }
 
 if (isset($_GET['id'])) {
     $customer_id = $_GET['id'];
@@ -111,7 +111,6 @@ if (isset($_GET['id'])) {
                     <i class="fa fa-user fa-fw"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-user">
-                    <a class="dropdown-item" href="profile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     <a class="dropdown-item" href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="login.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -143,9 +142,6 @@ if (isset($_GET['id'])) {
                     <li class="list-group-item">
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Settings<span class="fa arrow"></span></a>
                         <ul class="nav-second-level list-group nested">
-                            <li class="list-group-item">
-                                <a href="user_profile.php">Profile</a>
-                            </li>
                             <li class="list-group-item">
                                 <a href="login.php">Logout</a>
                             </li>
@@ -238,8 +234,8 @@ if (isset($_GET['id'])) {
                             <th class="text-center" colspan="2">Location</th>
                             <th class="text-center" rowspan="2"><label for="SLA">SLA(%)</label></th>
                             <th class="text-center" rowspan="2"><label for="CAP">Capacity (Mbps)</label></th>
-                            <th class="text-center" rowspan="2"><label for="AC">Annual Charges(RM/Year)</label></th>
-                            <th class="text-center" rowspan="2"><label for="OTC">One Time Charges(RM)</label></th>
+                            <th class="text-center" rowspan="2"><label for="AC">Charges (RM/USD)</label></th>
+                            <th class="text-center" rowspan="2"><label for="OTC">One Time Charges(RM/USD)</label></th>
                             <th class="text-center" rowspan="2"><label for="Edit">Edit</label></th>
                             <th class="text-center" rowspan="2"><label for="Delete">Delete</label></th>
                         </tr>
@@ -284,21 +280,56 @@ if (isset($_GET['id'])) {
             </div>
                
             <div class="row">
-                <div class="col-md-12">
-                    <div class="notes">
-                    <br>
-                        <p><strong>Notes</strong></p>
-                    </div>
+               
                     <div class="col-lg-12">
-                    <a href="#" class="btn btn-default" data-toggle="modal" data-target="#exampleModalCenter2"><i class="fa fa-plus fa-2x"></i></a>
-                    <?php include "notes_modal.php"; ?>
+                        <?php 
+
+                        $sql1 = $conn1->query("SELECT * FROM notes WHERE customer_id = $customer_id");
+                        $count = $sql1->num_rows;
+
+                        $row = $sql1->fetch_assoc();
+                        $id = $row['id'];
+                        $notes = $row['notes_user'];
+
+
+                        if ($count == 1) {
+                           echo "<a href=\"edit_notes.php?id=$id&customer_id=$customer_id\" class=\"btn btn-default\" ><i class=\"fa fa-edit fa-2x\"></i></a>";
+                        } else {
+                            echo "<a href=\"#\" class=\"btn btn-default\" data-toggle=\"modal\" data-target=\"#exampleModalCenter2\"><i class=\"fa fa-plus fa-2x\"></i></a>";
+                        }
+
+                         ?>
+                        
+                        <?php include "notes_modal.php"; ?>
+                        <div class="notes">
+                            <?php 
+                            if (isset($_SESSION['message'])) {
+                                echo $_SESSION['message'];
+                                unset($_SESSION['message']);
+                            }
+
+                             ?>
+                            <p><strong>Notes</strong></p>
+                            <?php 
+
+                           
+
+                            echo $notes;
+
+                             ?>
+                        </div>
                     </div>
-                </div>
+                    
+                
             </div>
             <div class="row">
+                <div class="col-lg-12">
+                    <a href="output.php?id=<?php echo $customer_id ?>" class="btn btn-primary pull-right">Print</a>
+                </div>
                 <div class="col-md-12">
                     &copy; Copyright 2019 - Fibrecomm Network
                 </div>
+                
             </div>
         </div>
     </div>

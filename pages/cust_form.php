@@ -138,7 +138,7 @@ if(isset($_POST['send'])){
                                         <th>contact Person</th>
                                         <th>Mobile</th>
                                         <th>Email</th>
-                                        <th>View</th>
+                                        <th width="15%">View</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
@@ -165,7 +165,7 @@ if(isset($_POST['send'])){
                                                 <td><?php echo $contact ?></td>
                                                 <td><?php echo $mobile ?></td>
                                                 <td><?php echo $email ?></td>
-                                                <td><a href="custdisplay.php?id=<?php echo $id ?>"><i class="fa fa-eye"></i></a></td>
+                                                <td><a href="custdisplay.php?id=<?php echo $id ?>"><i class="fa fa-eye"></i>  View Order</a></td>
                                                 <td><a href="edit_customer.php?id=<?php echo $id ?>"><i class="fa fa-edit"></i></a></td>
                                                 <td><a href="delete_cust.php?id=<?php echo $id ?>" onclick="return confirm('are you sure you want to delete ?')"><i class="fa fa-trash"></i></a></td>
                                             </tr>
