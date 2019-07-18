@@ -71,7 +71,6 @@ if(isset($_POST['send'])){
                     <i class="fa fa-user fa-fw"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-user">
-                    <a class="dropdown-item" href="profile.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     <a class="dropdown-item" href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="login.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -103,9 +102,6 @@ if(isset($_POST['send'])){
                     <li class="list-group-item">
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Settings<span class="fa arrow"></span></a>
                         <ul class="nav-second-level list-group nested">
-                            <li class="list-group-item">
-                                <a href="user_profile.php">Profile</a>
-                            </li>
                             <li class="list-group-item">
                                 <a href="login.php">Logout</a>
                             </li>

@@ -265,7 +265,7 @@ if (isset($_GET['id'])) {
                                 echo "<td>".$row['capacity']."</td>";
                                 echo "<td>".$row['annual_charges']."</td>";
                                 echo "<td>".$row['otcharges']."</td>";
-                                echo "<td><a href=\"editcustorder.php?id=$id\"><i class=\"fa fa-edit\"></i></a></td>";
+                                echo "<td><a href=\"editcustorder.php?id=$id&customerid=$customer_id\"><i class=\"fa fa-edit\"></i></a></td>";
                                 echo "<td><a href=\"delcustorder.php?id=$id&customerid=$customer_id\" onclick=\"return confirm('Are you sure you want to delete this order?')\">X</a></td>";
                                 echo "</tr>";
                                 $count++;

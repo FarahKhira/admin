@@ -1,22 +1,40 @@
+
 <?php 
-
-// ob_start();
-
-include("../pages/includes/db.php");
 session_start();
+include "includes/db1.php";
+if (isset($_GET['id'])) {
+    $customer_id = $_GET['id'];
 
-if (isset($_SESSION['id'])) {
-  
-} else {
-  header("Location: login.php");
+    $sql = $conn1->query("SELECT * FROM addcustdb WHERE ccompanyid = $customer_id");
+    if ($sql) {
+        $row = $sql->fetch_assoc();
+
+        $db_company = $row['ccompany'];
+        $db_contact_person = $row['ccontactperson'];
+        $db_mobile = $row['cmobile'];
+        $db_email = $row['cemail'];
+    }
 }
 
-$id = $_SESSION['id'];
-$username = $_SESSION['username'];
-$email = $_SESSION['email'];
-$mobile = $_SESSION['mobile'];
+if (isset($_POST['submit'])) {
+    $company = $_POST['company'];
+    $contact_person = $_POST['contact'];
+    $mobile = $_POST['phone'];
+    $email =  $_POST['email'];
 
-?>
+    $query = $conn1->query("UPDATE addcustdb SET ccompany = '$company', ccontactperson = '$contact_person', cmobile = '$mobile', cemail =  '$email' WHERE ccompanyid=$customer_id");
+
+    if ($query) {
+        $_SESSION['message'] = 'customer update';
+        header('Location: custdisplay.php');
+    } else {
+        $_SESSION['message'] = $conn1->error;
+        header('Location: custdisplay.php');
+    }
+}
+
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +46,7 @@ $mobile = $_SESSION['mobile'];
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>E-Quotation System</title>
+    <title>Customers-Edit Product</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -42,12 +60,8 @@ $mobile = $_SESSION['mobile'];
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-</head>
-
 <body>
-
 <div id="wrapper">
-
     <!-- Navigation -->
     <header class="align-items-start app-header flex-column flex-md-row navbar navbar-expand-md navbar-light">
         <div class="align-items-baseline d-flex flex-row navbar-brand p-lg-3 pl-3 pr-3 pt-3">
@@ -88,14 +102,14 @@ $mobile = $_SESSION['mobile'];
                         </div>
                         <!-- /input-group -->
                     </li>
-                   <li class="list-group-item">
+                    <li class="list-group-item">
                         <a href="indexstaff.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li class="list-group-item">
                         <a href="cust_form.php"><i class="fa fa-tags"></i> Customers </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Settings<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Settings<span class="fa arrow"></span></a>
                         <ul class="nav-second-level list-group nested">
                             <li class="list-group-item">
                                 <a href="login.php">Logout</a>
@@ -109,67 +123,43 @@ $mobile = $_SESSION['mobile'];
         </div>
 
         <div id="page-wrapper" class="p-4">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Dashboard</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <div class="row">
-                <div class="col-xl-6 col-lg-12">
-                    <div class="card card-primary card-inverse">
-                        <div class="card-header card-primary">
-                            <div class="row">
-                                <div class="col-3">
-                                    <i class="fa fa-users fa-5x"></i>
-                                </div>
-                                <div class="col-9 text-right">
-                                    <div class="huge">26</div>
-                                    <div>Customers!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer card-default">
-                            <a href="javascript:;">
-                                <span class="float-sm-left">View Details</span>
-                                <span class="float-sm-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </a>
-                        </div>
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-xl-12">
+                        <h2 class="page-header">Edit Product</h2>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-12">
-                    <div class="card card-red card-inverse">
-                        <div class="card-header card-red">
-                            <div class="row">
-                                <div class="col-3">
-                                    <i class="fa fa-user fa-5x"></i>
-                                </div>
-                                <div class="col-9 text-right">
-                                    <div class="huge">13</div>
-                                    <div>New Customers!</div>
-                                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <form action="" method="post">
+                            <div class="form-group">
+                                <label>Company</label>
+                                <input type="text" name="company" class="form-control" value="<?php echo $db_company ?>">
                             </div>
-                        </div>
-                        <div class="card-footer card-red">
-                            <a href="javascript:;">
-                                <span class="float-sm-left">View Details</span>
-                                <span class="float-sm-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </a>
-                        </div>
+                            <div class="form-group">
+                                <label>Contact Person</label>
+                                <input type="text" name="contact" class="form-control" value="<?php echo $db_contact_person ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>Mobile</label>
+                                <input type="text" name="phone" class="form-control" value="<?php echo $db_mobile ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="text" name="email" class="form-control" value="<?php echo $db_email ?>">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-primary" value="Send">
+                                <button type="back" name="back" class="btn btn-primary" onClick="javascript:window.location.href='cust_form.php'; return false">Back</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+        
     </div>
 </div>
-
-
-
-
-
-</body>
 
 <!-- jQuery -->
 <script src="../vendor/jquery/jquery.min.js"></script>
@@ -181,12 +171,8 @@ $mobile = $_SESSION['mobile'];
 <!-- Metis Menu Plugin JavaScript -->
 <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
-<!-- DataTables JavaScript -->
-<script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
-<script src="../vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
-<script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
-
 <!-- Custom Theme JavaScript -->
 <script src="../dist/js/sb-admin-2.js"></script>
+</body>
 
 </html>

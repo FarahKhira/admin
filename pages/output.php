@@ -102,7 +102,9 @@ if (isset($_GET['id'])) {
                    echo $dt->format('d-m-Y');
                 ?></a></strong>
 
+                <table class="table-table bordered">
                 <h4 class="bg-primary header text-center"><strong>QUOTATION /PROPOSAL</strong></h4>
+                </table>
 
             </div>
         </div>

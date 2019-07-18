@@ -49,9 +49,6 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Settings<span class="fa arrow"></span></a>
                         <ul class="nav-second-level list-group nested">
                             <li class="list-group-item">
-                                <a href="user_profile.php">Profile</a>
-                            </li>
-                            <li class="list-group-item">
                                 <a href="login.php">Logout</a>
                             </li>
                         </ul>

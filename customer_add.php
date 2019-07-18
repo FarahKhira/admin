@@ -75,7 +75,8 @@ if (isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
                                 echo "<td></td>";
                                 echo "<td>$username</td>";
                                 echo "<td><a href=\"updatecustadmin.php?id=$id\"><i class=\"fa fa-edit\"></i></a></td>";
-                                echo "<td><a href=\"#\">X</a></td>";
+                                echo "<td><a href=\"delcustadmin.php\">X</a></td>";
+                                echo "</tr>";"<td><a href=\"delcustadmin.php?id=$id\" onclick=\"return confirm('Are you sure you want to delete this order?')\">X</a></td>";
                                 echo "</tr>";
                                 $count++;
                             }
